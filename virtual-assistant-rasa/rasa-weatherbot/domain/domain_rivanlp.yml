@@ -1,0 +1,58 @@
+# ==============================================================================
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+#
+# The License information can be found under the "License" section of the
+# README.md file.
+# ==============================================================================
+
+version: "2.0"
+
+
+intents:
+  - weather__weather
+  - weather__temprature
+  - weather__rainfall
+  - weather__sunny
+  - weather__cloudy
+  - weather__humidity  
+  - weather__snow
+  - weather__snow_yes_no
+  - weather__rainfall_yes_no
+  - weather__temperature_yes_no
+  - weather__humidity_yes_no
+  - specify_city
+
+
+entities:
+  - city
+
+
+slots:
+  city:
+    type: text
+
+
+responses:
+  utter_default: 
+  - text: "Sorry, I did not get that! Can you please rephrase?"
+    
+  utter_ask_location:
+  - text: "For which location?"
+  
+  utter_ask_action:
+  - text: "Got your city. What would you like to do now?"
+
+
+actions:
+  - action_weather
+  - action_temperature
+  - action_rainfall
+  - action_sunny
+  - action_cloudy
+  - action_humidity
+  - action_snow
+
+
+session_config:
+  session_expiration_time: 30
+  carry_over_slots_to_new_session: False
