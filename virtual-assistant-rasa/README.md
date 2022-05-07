@@ -122,8 +122,8 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		``. pythonenvs/rasa/bin/activate``  
 	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
 		```
-		pip3 install -U pip
-		pip3 install -r requirements_rasa.txt
+			pip3 install -U pip  
+			pip3 install -r requirements_rasa.txt
 		```  
 	4.3. Deactivate Rasa Python virtual environment:  
 		``deactivate``  
