@@ -13,14 +13,14 @@ client_config = {
 }
 
 riva_config = {
-    "RIVA_SPEECH_API_URL": "10.20.30.40:50051", # Replace the IP port with your hosted RIVA endpoint
-    "WEATHERSTACK_ACCESS_KEY": "",  # Get your access key at - https://weatherstack.com/
+    "RIVA_SPEECH_API_URL": "localhost:50051", # Replace the IP port with your hosted RIVA endpoint
+    "WEATHERSTACK_ACCESS_KEY": "e0471c55083ec682b817d1c09e321e25",  # Get your access key at - https://weatherstack.com/
     "VERBOSE": True  # print logs/details for diagnostics
 }
 
 rasa_config = {
     "VERBOSE": False, # Print logs/details for diagnostics
-    "RASA_API_URL": "http://20.40.60.80:5005", # Replace the IP & Port with the rasa-weatherbot's IP & Port
+    "RASA_API_URL": "http://localhost:5005", # Replace the IP & Port with the rasa-weatherbot's IP & Port
 }
 
 asr_config = {

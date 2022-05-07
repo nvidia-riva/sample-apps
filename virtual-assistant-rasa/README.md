@@ -100,11 +100,50 @@ This section shows the high-level code structure of the Weatherbot Client (in Ri
 
 (rasa-network-configuration)=
 
-### Network Configuration
+## Requirements and Setup
 
+### Requirements:  
+1. Python 3.6.9  
+
+### Setup:  
+
+1. Enter directory:  
+``cd sample-apps/virtual-assistant-rasa``  
+
+2. Create parent directory for all venvs:  
+``mkdir pythonenvs``  
+  
+3. Install rasa venv libraries:  
+``python3 -m venv pythonenvs/rasa``  
+``. pythonenvs/rasa/bin/activate``  
+``pip3 install -U pip``  
+``pip3 install -r requirements_rasa.txt``  
+``deactivate``  
+
+4. Install client venv libraries:  
+``python3 -m venv pythonenvs/client``  
+``. pythonenvs/client/bin/activate``
+``pip3 install -U pip``  
+	4.1. Install Riva client libraries:  
+		``cd /home/nsrihari/Riva/QSG/``  
+		``cd riva_quickstart_v2.0.0``  
+		``pip install riva_api-2.0.0-py3-none-any.whl``  
+	4.2. Install other libraries  
+	``pip3 install -r requirements_client.txt``
+``deactivate``
+
+
+## Running the Demo
+
+1. Start the Riva Speech Server. Follow the steps in the {ref}`quick_start_guide`.
+2. Clone Riva Sample Apps repo:
+`` git clone https://github.com/nvidia-riva/sample-apps.git``
+``cd sample-apps/virtual-assistant-rasa``
+
+3. Modify the API endpoint setting:
 There are two locations in the code base that have to be configured for inter-service communication:
 
-1. `virtual-assistant-rasa/rasa-weatherbot/endpoints.yml`
+1. `rasa-weatherbot/endpoints.yml`
 
    ```
    # uncomment and populate the section below
@@ -120,7 +159,7 @@ There are two locations in the code base that have to be configured for inter-se
        url: "http://10.20.30.40:5055/webhook"
    ```
 
-2. `virtual-assistant-rasa/config.py`
+2. `config.py`
 
    ```
    # uncomment and populate the section below
@@ -173,42 +212,14 @@ There are two locations in the code base that have to be configured for inter-se
        "RASA_API_URL": "20.40.60.80:5005",
        ...
    ```
-
-## Running the Demo
-
-1. Start the Riva Speech Server. Follow the steps in the {ref}`quick_start_guide`.
-2. Start the Rasa Action server.
-   1. Run the Riva Sample container.
-
-      1. Pull the Riva Sample container.
-
-         ```bash
-         docker pull nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples
-         ```
-
-      2. Run the Riva Sample container.
-
-         ```bash
-         docker run -it --rm -p 5055:5055 nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples /bin/bash
-         ```
-
-      3. Navigate to the `samples/virtual-assistant-rasa` directory.
-
-         ```
-         cd samples/virtual-assistant-rasa
-         ```
-
-      4. Modify the API endpoint setting, if needed, per the {ref}`rasa-network-configuration` section. Ensure you modify the API
-         endpoints for each of the three container instances.
-
-   2. Start the Rasa Action server.
+3. Start the Rasa Action server.
 
       1. Open the `config.py` script. In the dictionary on the right side of the `riva_config` variable, update the `WEATHERSTACK_ACCESS_KEY` field with your Weatherstack API key.  A new Weatherstack API key can be obtained [here](https://weatherstack.com/).
 
       2. Activate the Rasa Python environment.
 
          ```
-         . /pythonenvs/rasa/bin/activate
+         . pythonenvs/rasa/bin/activate
          ```
 
       3. Navigate to the `rasa-weatherbot` directory.
@@ -223,37 +234,12 @@ There are two locations in the code base that have to be configured for inter-se
          rasa run actions --actions actions
          ```
 
-3. Start the Rasa server in a different terminal.
-
-   1. Run the Riva Sample container.
-
-      1. Pull the Riva Sample container.
-
-         ```bash
-         docker pull nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples
-         ```
-
-      2. Run the Riva Sample container.
-
-         ```bash
-         docker run -it --rm -p 5005:5005 nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples /bin/bash
-         ```
-
-      3. Navigate to the `cd samples/virtual-assistant-rasa` directory.
-
-         ```
-         cd samples/virtual-assistant-rasa
-         ```
-
-      4. Modify the API endpoint setting, if needed, per the {ref}`rasa-network-configuration` section. Ensure you modify the API
-         endpoints for each of the three container instances.
-
-   2. Start the Rasa server.
+4. Start the Rasa server in a different terminal.
 
       1. Activate the Rasa Python environment.
 
          ```
-         . /pythonenvs/rasa/bin/activate
+         . pythonenvs/rasa/bin/activate
          ```
 
       2. Navigate to the `rasa-weatherbot` directory.
@@ -301,37 +287,12 @@ There are two locations in the code base that have to be configured for inter-se
                --log-file out.log --endpoints endpoints.yml
            ```
 
-4. Start the Riva Chatbot server. Configure the API endpoints for both Riva Speech Service and Rasa. Refer to the
-   {ref}`rasa-network-configuration` section for more information.
-
-   1. Run the Riva Sample container.
-
-      1. Pull the Riva Sample container.
-
-         ```bash
-         docker pull nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples
-         ```
-
-      2. Run the Riva Sample container.
-
-         ```bash
-         docker run -it --rm -p 5555:5555 nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples /bin/bash
-         ```
-
-      3. Navigate to the `samples/virtual-assistant-rasa` directory.
-
-         ```
-         cd samples/virtual-assistant-rasa
-         ```
-
-      4. Modify the API endpoint setting, if needed, per the {ref}`rasa-network-configuration` section. Ensure you modify the API endpoints for each of the three container instances.
-
-   2. Start the Riva Chatbot Client.
+5. Start the Riva Chatbot server.
 
       1. Activate the Chatbot Client Python environment.
 
          ```
-         . /pythonenvs/client/bin/activate
+         . pythonenvs/client/bin/activate
          ```
 
       2. Navigate to the `rasa-riva-weatherbot-webapp` directory.
@@ -346,17 +307,17 @@ There are two locations in the code base that have to be configured for inter-se
          python3 main.py
          ```
 
-5. Open the web UI on a web browser.
+        4. Open the web UI on a web browser.
 
-```
-https://[riva chatbot server host IP]:5555/rivaWeather
-```
+        ```
+        https://[riva chatbot server host IP]:5555/rivaWeather
+        ```
 
-For example:
+        For example:
 
-```
-[https://0.0.0.0:5555/rivaWeather](https://0.0.0.0:5555/rivaWeather)
-```
+        ```
+        [https://0.0.0.0:5555/rivaWeather](https://0.0.0.0:5555/rivaWeather)
+        ```
 
 ## Sample Conversations
 
