@@ -98,226 +98,168 @@ This section shows the high-level code structure of the Weatherbot Client (in Ri
   >   > - TTS is automatically called with Rasa's response text, if `System Speech` is not muted.
   >   > - TTS gets the audio snippet and plays it back to the user on the speakers.
 
-(rasa-network-configuration)=
-
 ## Requirements and Setup
 
-### Requirements:  
-1. Python 3.6.9  
+### Requirements: 
+Before you try running the Riva client, ensure you meet the following requirements:
+1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
+2. [Python 3](https://www.python.org/download/releases/3.0/)  
 
 ### Setup:  
 
-1. Enter directory:  
+1. Clone Riva Sample Apps repository:
+`` git clone https://github.com/nvidia-riva/sample-apps.git``  
+
+2. Enter Riva and Rasa Virtual Assistant directory:  
 ``cd sample-apps/virtual-assistant-rasa``  
 
-2. Create parent directory for all venvs:  
+3. Create parent directory for all Python virtual environments we will be using for this sample:  
 ``mkdir pythonenvs``  
   
-3. Install rasa venv libraries:  
-``python3 -m venv pythonenvs/rasa``  
-``. pythonenvs/rasa/bin/activate``  
-``pip3 install -U pip``  
-``pip3 install -r requirements_rasa.txt``  
-``deactivate``  
+4. Create Python virtual environment for Rasa text-based chatbot and install necessary libraries:  
+	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:
+		``python3 -m venv pythonenvs/rasa``  
+		``. pythonenvs/rasa/bin/activate``  
+	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:
+		``pip3 install -U pip``  
+		``pip3 install -r requirements_rasa.txt``  
+	4.3. Deactivate Rasa Python virtual environment
+		``deactivate``  
 
-4. Install client venv libraries:  
-``python3 -m venv pythonenvs/client``  
-``. pythonenvs/client/bin/activate``
-``pip3 install -U pip``  
-	4.1. Install Riva client libraries:  
+5. Create Python virtual environment for Weatherbot web application, using Riva client, and install necessary libraries:  
+ 	5.1. Create and activate Python virtual environment for Weatherbot web application, using Riva client:
+		``python3 -m venv pythonenvs/client``  
+		``. pythonenvs/client/bin/activate``  
+	5.2. Upgrade pip:
+		``pip3 install -U pip``  
+	5.3. Install Riva client libraries:  
 		``cd /home/nsrihari/Riva/QSG/``  
 		``cd riva_quickstart_v2.0.0``  
 		``pip install riva_api-2.0.0-py3-none-any.whl``  
-	4.2. Install other libraries  
-	``pip3 install -r requirements_client.txt``
-``deactivate``
+		5.3.1. Download the Riva Quick Start scripts, if not already done.
+			``ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"``  
+		5.3.2. Install the Riva client library.
+			``cd riva_quickstart_v2.0.0``  
+			``pip install riva_api-2.0.0-py3-none-any.whl``  
+	5.4. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
+		``pip3 install -r requirements_client.txt``  
+	5.5. Deactivate Weatherbot web application's Python virtual environment
+		``deactivate``  
 
 
 ## Running the Demo
 
-1. Start the Riva Speech Server. Follow the steps in the {ref}`quick_start_guide`.
-2. Clone Riva Sample Apps repo:
-`` git clone https://github.com/nvidia-riva/sample-apps.git``
-``cd sample-apps/virtual-assistant-rasa``
+1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
+
+2. Clone Riva Sample Apps repository:
+`` git clone https://github.com/nvidia-riva/sample-apps.git``  
+``cd sample-apps/virtual-assistant-rasa``  
 
 3. Modify the API endpoint setting:
 There are two locations in the code base that have to be configured for inter-service communication:
+	3.1. `rasa-weatherbot/endpoints.yml`
+		```
+		# uncomment and populate the section below
+		action_endpoint:
+			url: "http://[rasa server host IP]:5055/webhook"
+		```
+		For example:
+		```
+		# uncomment and populate the section below
+		action_endpoint:
+			url: "http://10.20.30.40:5055/webhook"
+		```
+	3.2. `config.py`
+		```
+		# uncomment and populate the section below
+		riva_config = {
+			...
+			"RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
+			...
+		}
 
-1. `rasa-weatherbot/endpoints.yml`
+		# uncomment and populate the section below
+		rasa_config = {
+			...
+			"RASA_API_URL": "[rasa server host IP]:5005",
+			...
+		}
+		```
+   		For example:
+		If the Riva Service, Rasa server, and the Weatherbot Client are all running on the same machine, it would be:
+		```
+		# uncomment and populate the section below
+		riva_config = {
+			...
+			"RIVA_SPEECH_API_URL": "10.20.30.40:50051",
+			...
+		}
+		# uncomment and populate the section below
+		rasa_config = {
+			...
+			"RASA_API_URL": "10.20.30.40:5005",
+			...
+		}
+		```
 
-   ```
-   # uncomment and populate the section below
-   action_endpoint:
-       url: "http://[rasa server host IP]:5055/webhook"
-   ```
+4. Start the Rasa Action server.  
+	4.1. Open the `config.py` script. In the dictionary on the right side of the `riva_config` variable, update the `WEATHERSTACK_ACCESS_KEY` field with your Weatherstack API key. A new Weatherstack API key can be obtained [here](https://weatherstack.com/).  
+	4.2. Activate the Python virtual environment for Rasa text-based chatbot.  
+		``. pythonenvs/rasa/bin/activate``  
+	4.3. Navigate to the `rasa-weatherbot` directory.  
+		``cd rasa-weatherbot``  
+	4.4. Run the Rasa Action server.  
+		``rasa run actions --actions actions``  
 
-   For example:
-
-   ```
-   # uncomment and populate the section below
-   action_endpoint:
-       url: "http://10.20.30.40:5055/webhook"
-   ```
-
-2. `config.py`
-
-   ```
-   # uncomment and populate the section below
-   riva_config = {
-       ...
-       "RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
-       ...
-   }
-
-   # uncomment and populate the section below
-   rasa_config = {
-       ...
-       "RASA_API_URL": "[rasa server host IP]:5005",
-       ...
-   }
-   ```
-
-   In the case where one is using `localhost` the `[rasa server host IP]` must be set to the local machine's IP, instead
-   of `localhost`.
-
-   If the Riva Service, Rasa server, and the Weatherbot Client are all running on the same machine, it would be:
-
-   ```
-   # uncomment and populate the section below
-   riva_config = {
-       ...
-       "RIVA_SPEECH_API_URL": "10.20.30.40:50051",
-       ...
-
-   # uncomment and populate the section below
-   rasa_config = {
-       ...
-       "RASA_API_URL": "10.20.30.40:5005",
-       ...
-   ```
-
-   If the Riva Service runs on a GPU that is supported by a remote machine, and Rasa and the Weatherbot Client are running on a
-   local machine, it would be:
-
-   ```
-   # uncomment and populate the section below
-   riva_config = {
-       ...
-       "RIVA_SPEECH_API_URL": "10.20.30.40:50051",
-       ...
-
-   # uncomment and populate the section below
-   rasa_config = {
-       ...
-       "RASA_API_URL": "20.40.60.80:5005",
-       ...
-   ```
-3. Start the Rasa Action server.
-
-      1. Open the `config.py` script. In the dictionary on the right side of the `riva_config` variable, update the `WEATHERSTACK_ACCESS_KEY` field with your Weatherstack API key.  A new Weatherstack API key can be obtained [here](https://weatherstack.com/).
-
-      2. Activate the Rasa Python environment.
-
-         ```
-         . pythonenvs/rasa/bin/activate
-         ```
-
-      3. Navigate to the `rasa-weatherbot` directory.
-
-         ```
-         cd rasa-weatherbot
-         ```
-
-      4. Run the Rasa Action server.
-
-         ```
-         rasa run actions --actions actions
-         ```
-
-4. Start the Rasa server in a different terminal.
-
-      1. Activate the Rasa Python environment.
-
-         ```
-         . pythonenvs/rasa/bin/activate
-         ```
-
-      2. Navigate to the `rasa-weatherbot` directory.
-
-         ```
-         cd rasa-weatherbot
-         ```
-
-      3. Run the Rasa training.
-
-         - For Riva NLP: Train the Rasa Core model.
-
-           ```
-           rasa train -c config/config_rivanlp.yml \
-               -d domain/domain_rivanlp.yml \
-               --out models/models_rivanlp/ \
-               --data data/nlu_rivanlp.yml \
-               data/rules_rivanlp.yml \
-               data/stories_rivanlp.yml
-           ```
-
-         - For Rasa NLU: Train the Rasa NLU and Rasa Core models.
-
-           ```
-           rasa train -c config/config_rasanlp.yml \
-               -d domain/domain_rasanlp.yml \
-               --out models/models_rasanlp/ \
-               --data data/nlu_rasanlp.yml \
-               data/rules_rasanlp.yml data/stories_rasanlp.yml
-           ```
-
-      4. Run the Rasa server.
-
-         - For Riva NLP.
-
-           ```
-           rasa run -m models/models_rivanlp/ --enable-api \
-               --log-file out.log --endpoints endpoints.yml
-           ```
-
-         - For Rasa NLU.
-
-           ```
-           rasa run -m models/models_rasanlp/ --enable-api \
-               --log-file out.log --endpoints endpoints.yml
-           ```
-
-5. Start the Riva Chatbot server.
-
-      1. Activate the Chatbot Client Python environment.
-
-         ```
-         . pythonenvs/client/bin/activate
-         ```
-
-      2. Navigate to the `rasa-riva-weatherbot-webapp` directory.
-
-         ```
-         cd rasa-riva-weatherbot-webapp
-         ```
-
-      3. Starting the Chatbot Client server.
-
-         ```
-         python3 main.py
-         ```
-
-        4. Open the web UI on a web browser.
-
-        ```
-        https://[riva chatbot server host IP]:5555/rivaWeather
-        ```
-
-        For example:
-
-        ```
-        [https://0.0.0.0:5555/rivaWeather](https://0.0.0.0:5555/rivaWeather)
-        ```
+5. Start the Rasa server in a different terminal.  
+	5.1. Activate the Python virtual environment for Rasa text-based chatbot.  
+		``. pythonenvs/rasa/bin/activate``  
+	5.2. Navigate to the `rasa-weatherbot` directory.  
+		``cd rasa-weatherbot``  
+	5.3. Run the Rasa training.  
+		- For Riva NLP: Train the Rasa Core model.
+			```
+			rasa train -c config/config_rivanlp.yml \
+				-d domain/domain_rivanlp.yml \
+				--out models/models_rivanlp/ \
+				--data data/nlu_rivanlp.yml \
+				data/rules_rivanlp.yml \
+				data/stories_rivanlp.yml
+			```
+		- For Rasa NLU: Train the Rasa NLU and Rasa Core models.
+			```
+			rasa train -c config/config_rasanlp.yml \
+				-d domain/domain_rasanlp.yml \
+				--out models/models_rasanlp/ \
+				--data data/nlu_rasanlp.yml \
+				data/rules_rasanlp.yml data/stories_rasanlp.yml
+			```
+	5.4. Run the Rasa server.
+		- For Riva NLP.
+			```
+			rasa run -m models/models_rivanlp/ --enable-api \
+			--log-file out.log --endpoints endpoints.yml
+			```
+		- For Rasa NLU.
+			```
+			rasa run -m models/models_rasanlp/ --enable-api \
+			--log-file out.log --endpoints endpoints.yml
+			```
+6. Start the Riva Chatbot server.
+	6.1. Activate the Python virtual environment for the weather web application.
+		``. pythonenvs/client/bin/activate``
+	6.2. Navigate to the `rasa-riva-weatherbot-webapp` directory.
+		``cd rasa-riva-weatherbot-webapp``
+	6.3. Starting the Chatbot Client server.
+		``python3 main.py``
+	6.4. Open the web UI on a web browser.
+		```
+			https://[riva chatbot server host IP]:5555/rivaWeather
+		```
+		For example:
+		```
+			[https://0.0.0.0:5555/rivaWeather](https://0.0.0.0:5555/rivaWeather)
+		```
 
 ## Sample Conversations
 
@@ -424,4 +366,9 @@ speed is 9 miles per hour.
 
 ## License
 
-For applicable licenses, refer to the {ref}`license` section.
+[End User License Agreement](https://developer.download.nvidia.com/licenses/Riva_Pre-Release_Evaluation_License_23Jan2020.pdf) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications, you accept the terms and conditions of these licenses.   <br>
+This project uses [Rasa](https://rasa.com/) and [Rasa-SDK](https://rasa.com/), the license information for which can be found below:  
+**Rasa:**  
+Licensed under the Apache License, Version 2.0. Copyright 2020 Rasa Technologies GmbH. Copy of the license can be found [here](https://github.com/RasaHQ/rasa/blob/main/LICENSE.txt).  
+**Rasa-SDK:**  
+Licensed under the Apache License, Version 2.0. Copyright 2020 Rasa Technologies GmbH. Copy of the license can be found [here](https://github.com/RasaHQ/rasa-sdk/blob/main/LICENSE.txt).
