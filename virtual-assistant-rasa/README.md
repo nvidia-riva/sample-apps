@@ -107,7 +107,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 ### Setup:  
 
-1. Clone Riva Sample Apps repository:
+1. Clone Riva Sample Apps repository:  
 `` git clone https://github.com/nvidia-riva/sample-apps.git``  
 
 2. Enter Riva and Rasa Virtual Assistant directory:  
@@ -117,13 +117,15 @@ Before you try running the Riva client, ensure you meet the following requiremen
 ``mkdir pythonenvs``  
   
 4. Create Python virtual environment for Rasa text-based chatbot and install necessary libraries:  
-	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:
+	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:  
 		``python3 -m venv pythonenvs/rasa``  
 		``. pythonenvs/rasa/bin/activate``  
-	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:
-		``pip3 install -U pip``  
-		``pip3 install -r requirements_rasa.txt``  
-	4.3. Deactivate Rasa Python virtual environment
+	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
+		```
+		pip3 install -U pip
+		pip3 install -r requirements_rasa.txt
+		```  
+	4.3. Deactivate Rasa Python virtual environment:  
 		``deactivate``  
 
 5. Create Python virtual environment for Weatherbot web application, using Riva client, and install necessary libraries:  
