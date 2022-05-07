@@ -112,11 +112,13 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	git clone https://github.com/nvidia-riva/sample-apps.git
 ```
 2. Enter Riva and Rasa Virtual Assistant directory:  
-``cd sample-apps/virtual-assistant-rasa``  
-
+```
+	cd sample-apps/virtual-assistant-rasa
+```  
 3. Create parent directory for all Python virtual environments we will be using for this sample:  
-``mkdir pythonenvs``  
-  
+```
+	mkdir pythonenvs
+```    
 4. Create Python virtual environment for Rasa text-based chatbot and install necessary libraries:  
 	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:  
 ```
@@ -129,27 +131,42 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	pip3 install -r requirements_rasa.txt
 ```  
 	4.3. Deactivate Rasa Python virtual environment:  
-		``deactivate``  
-
+```
+	deactivate
+```  
 5. Create Python virtual environment for Weatherbot web application, using Riva client, and install necessary libraries:  
  	5.1. Create and activate Python virtual environment for Weatherbot web application, using Riva client:
-		``python3 -m venv pythonenvs/client``  
-		``. pythonenvs/client/bin/activate``  
+```
+		python3 -m venv pythonenvs/client  
+		. pythonenvs/client/bin/activate
+```  
 	5.2. Upgrade pip:
-		``pip3 install -U pip``  
+```		
+		pip3 install -U pip
+```  
 	5.3. Install Riva client libraries:  
-		``cd /home/nsrihari/Riva/QSG/``  
-		``cd riva_quickstart_v2.0.0``  
-		``pip install riva_api-2.0.0-py3-none-any.whl``  
+```
+		cd /home/nsrihari/Riva/QSG/  
+		cd riva_quickstart_v2.0.0  
+		pip install riva_api-2.0.0-py3-none-any.whl
+```  
 		5.3.1. Download the Riva Quick Start scripts, if not already done.
-			``ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"``  
+```
+			ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"
+```  
 		5.3.2. Install the Riva client library.
-			``cd riva_quickstart_v2.0.0``  
-			``pip install riva_api-2.0.0-py3-none-any.whl``  
+```
+			cd riva_quickstart_v2.0.0  
+			pip install riva_api-2.0.0-py3-none-any.whl
+```  
 	5.4. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
-		``pip3 install -r requirements_client.txt``  
+```
+		pip3 install -r requirements_client.txt
+```  
 	5.5. Deactivate Weatherbot web application's Python virtual environment
-		``deactivate``  
+```
+		deactivate
+```  
 
 
 ## Running the Demo
