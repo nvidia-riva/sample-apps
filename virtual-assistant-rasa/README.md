@@ -111,7 +111,6 @@ Before you try running the Riva client, ensure you meet the following requiremen
 ```
 	git clone https://github.com/nvidia-riva/sample-apps.git
 ```  
-
 2. Enter Riva and Rasa Virtual Assistant directory:  
 ``cd sample-apps/virtual-assistant-rasa``  
 
