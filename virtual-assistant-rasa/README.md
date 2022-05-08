@@ -123,45 +123,45 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	mkdir pythonenvs
 ```    
 4. Create Python virtual environment for Rasa text-based chatbot and install necessary libraries:  
-	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:  
+	1. Create and activate Python virtual environment for Rasa text-based chatbot:  
 	```
 		python3 -m venv pythonenvs/rasa
 		. pythonenvs/rasa/bin/activate
 	```  
-	4.2. Upgrade `pip` and install Rasa dependencies. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
+	2. Upgrade `pip` and install Rasa dependencies. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
 	```
 		pip3 install -U pip  
 		pip3 install -r requirements_rasa.txt
 	```  
-	4.3. Deactivate Rasa Python virtual environment:  
+	3. Deactivate Rasa Python virtual environment:  
 	```
 		deactivate
 	```  
 5. Create Python virtual environment for Weatherbot web application, which uses Riva client, and install necessary libraries:  
- 	5.1. Create and activate Python virtual environment for Weatherbot web application:
+ 	1. Create and activate Python virtual environment for Weatherbot web application:
 	```
 		python3 -m venv pythonenvs/client  
 		. pythonenvs/client/bin/activate
 	```  
-	5.2. Upgrade `pip`:
+	2. Upgrade `pip`:
 	```		
 		pip3 install -U pip
 	```  
-	5.3. Install Riva client libraries:  
-		5.3.1. Download the Riva Quick Start scripts, if not already done.  
+	3. Install Riva client libraries:  
+		1. Download the Riva Quick Start scripts, if not already done.  
 		```
 		ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"  
 		```  
-		5.3.2. Install the Riva client library.  
+		2. Install the Riva client library.  
 		```
 		cd riva_quickstart_v<x.y.z>  
 		pip install riva_api-<x.y.z>-py3-none-any.whl  
 		```  
-	5.4. Upgrade `pip` and install Weatherbot dependencies. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
+	4. Upgrade `pip` and install Weatherbot dependencies. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
 	```
 		pip3 install -r requirements_client.txt
 	```  
-	5.5. Deactivate Weatherbot web application's Python virtual environment:
+	5. Deactivate Weatherbot web application's Python virtual environment:
 	```
 		deactivate
 	```  
