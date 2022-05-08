@@ -9,9 +9,11 @@ of a weather chatbot web application. This sample is available in two options:
 
 To learn more about Rasa, follow [this link](https://rasa.com/).
 
+
 ## Demo Video
 
 To see how the Riva weather chatbot service works, the demo video can be found [here](https://youtu.be/YCuilEpmlFI).
+
 
 ## Implementation
 
@@ -47,12 +49,9 @@ coordinates the workflow with Riva Services and Rasa, then interacts with the en
   >   > - Pipelines ASR, NLP, TTS, and dialog manager functionalities
   >   > - Does not need GPUs
 
+
 ### Architecture
 
-```{image} ./img/riva-nlp.png
-:alt: Riva ASR + Riva TTS + Riva NLP + Rasa dialog manager
-:width: 800
-```
 <img src="./img/riva-nlp.png"
      alt="Riva ASR + Riva TTS + Riva NLP + Rasa dialog manager"
      style="float: left; margin-right: 10px; width: 800;" />
@@ -61,14 +60,10 @@ coordinates the workflow with Riva Services and Rasa, then interacts with the en
      alt="Riva ASR + Riva TTS + Rasa NLU + Rasa dialog manager"
      style="float: left; margin-right: 10px; width: 800;" />
 
-```{image} ./img/rasa-nlu.png
-:alt: Riva ASR + Riva TTS + Rasa NLU + Rasa dialog manager
-:width: 800
-```
 
 ### Code Structure
 
-This section shows the high-level code structure of the Weatherbot Client (in Riva Samples' Riva-Rasa Chatbot).
+This section shows the high-level code structure of the Weatherbot Client (in `rasa-riva-weatherbot-webapp/riva` folder).
 
 - `asr.py`
 
@@ -105,6 +100,7 @@ This section shows the high-level code structure of the Weatherbot Client (in Ri
   >   > - TTS is automatically called with Rasa's response text, if `System Speech` is not muted.
   >   > - TTS gets the audio snippet and plays it back to the user on the speakers.
 
+
 ## Requirements and Setup
 
 ### Requirements: 
@@ -132,7 +128,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		python3 -m venv pythonenvs/rasa
 		. pythonenvs/rasa/bin/activate
 	```  
-	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
+	4.2. Upgrade `pip` and install Rasa dependencies. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
 	```
 		pip3 install -U pip  
 		pip3 install -r requirements_rasa.txt
@@ -141,36 +137,31 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	```
 		deactivate
 	```  
-5. Create Python virtual environment for Weatherbot web application, using Riva client, and install necessary libraries:  
- 	5.1. Create and activate Python virtual environment for Weatherbot web application, using Riva client:
+5. Create Python virtual environment for Weatherbot web application, which uses Riva client, and install necessary libraries:  
+ 	5.1. Create and activate Python virtual environment for Weatherbot web application:
 	```
 		python3 -m venv pythonenvs/client  
 		. pythonenvs/client/bin/activate
 	```  
-	5.2. Upgrade pip:
+	5.2. Upgrade `pip`:
 	```		
 		pip3 install -U pip
 	```  
 	5.3. Install Riva client libraries:  
-	```
-		cd /home/nsrihari/Riva/QSG/  
-		cd riva_quickstart_v2.0.0  
-		pip install riva_api-2.0.0-py3-none-any.whl
-	```  
 		5.3.1. Download the Riva Quick Start scripts, if not already done.
 		```
 			ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"
 		```  
 		5.3.2. Install the Riva client library.
 		```
-			cd riva_quickstart_v2.0.0  
-			pip install riva_api-2.0.0-py3-none-any.whl
+			cd riva_quickstart_v<x.y.z>  
+			pip install riva_api-<x.y.z>-py3-none-any.whl
 		```  
-	5.4. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
+	5.4. Upgrade `pip` and install Weatherbot dependencies. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
 	```
 		pip3 install -r requirements_client.txt
 	```  
-	5.5. Deactivate Weatherbot web application's Python virtual environment
+	5.5. Deactivate Weatherbot web application's Python virtual environment:
 	```
 		deactivate
 	```  
@@ -180,13 +171,13 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-2. Clone Riva Sample Apps repository:
+2. Clone Riva Sample Apps repository, if not already done:
 ```
 	git clone https://github.com/nvidia-riva/sample-apps.git  
 	cd sample-apps/virtual-assistant-rasa
 ```  
 
-3. Modify the API endpoint setting. There are two locations in the code base that have to be configured for inter-service communication:
+3. Modify the API endpoint setting. There are two locations in the code base that have to be configured for inter-service communication:  
 	3.1. `rasa-weatherbot/endpoints.yml` for the IP address of the macine running Rasa Action server endpoint:
 	```
 		# uncomment and populate the section below
@@ -215,8 +206,8 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		...
 	}
 	```
-	For example:
-	If the Riva Speech Skills Service and Rasa chatbot server are both running on the same machine, it would be:
+	For example:  
+	If the Riva Speech Skills Service and Rasa chatbot server are both running on the same machine, it would be:  
 	```
 	# uncomment and populate the section below
 	riva_config = {
@@ -231,7 +222,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		...
 	}
 	```
-	If the Riva Speech Skills Service and Rasa chatbot server are running on different machines, it would be:
+	If the Riva Speech Skills Service and Rasa chatbot server are running on different machines, it would be:  
 	```
 	# uncomment and populate the section below
 	riva_config = {
@@ -272,7 +263,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		cd rasa-weatherbot
 	```  
 	5.3. Run the Rasa training.  
-		- For Riva NLP: Train the Rasa Core model.
+		- For Riva NLP: Train the Rasa Core model.  
 		```
 			rasa train -c config/config_rivanlp.yml \
 				-d domain/domain_rivanlp.yml \
@@ -281,7 +272,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 				data/rules_rivanlp.yml \
 				data/stories_rivanlp.yml
 		```
-		- For Rasa NLU: Train the Rasa NLU and Rasa Core models.
+		- For Rasa NLU: Train the Rasa NLU and Rasa Core models.  
 		```
 			rasa train -c config/config_rasanlp.yml \
 				-d domain/domain_rasanlp.yml \
@@ -289,19 +280,19 @@ Before you try running the Riva client, ensure you meet the following requiremen
 				--data data/nlu_rasanlp.yml \
 				data/rules_rasanlp.yml data/stories_rasanlp.yml
 		```
-	5.4. Run the Rasa server.
-		- For Riva NLP.
+	5.4. Run the Rasa server.  
+		- For Riva NLP.  
 		```
 			rasa run -m models/models_rivanlp/ --enable-api \
 			--log-file out.log --endpoints endpoints.yml
 		```
-		- For Rasa NLU.
+		- For Rasa NLU.  
 		```
 			rasa run -m models/models_rasanlp/ --enable-api \
 			--log-file out.log --endpoints endpoints.yml
 		```
 
-6. Start the Riva Chatbot server.
+6. Start the Riva Chatbot server.  
 	6.1. Activate the Python virtual environment for the weather web application.
 	```
 		. pythonenvs/client/bin/activate
@@ -318,7 +309,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	```
 		https://[riva chatbot server host IP]:5555/rivaWeather
 	```
-	For example:
+	For example:  
 	```
 		[https://0.0.0.0:5555/rivaWeather](https://0.0.0.0:5555/rivaWeather)
 	```
