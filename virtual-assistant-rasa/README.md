@@ -125,17 +125,15 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		    python3 -m venv pythonenvs/rasa
 		    . pythonenvs/rasa/bin/activate
 	```  
-
-        4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
-```
-            pip3 install -U pip  
-            pip3 install -r requirements_rasa.txt
-```  
-        
+	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
+	```
+		    pip3 install -U pip  
+		    pip3 install -r requirements_rasa.txt
+	```  
 	4.3. Deactivate Rasa Python virtual environment:  
-```
-            deactivate
-```  
+	```
+		    deactivate
+	```  
 5. Create Python virtual environment for Weatherbot web application, using Riva client, and install necessary libraries:  
  	5.1. Create and activate Python virtual environment for Weatherbot web application, using Riva client:
 ```
