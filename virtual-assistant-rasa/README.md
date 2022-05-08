@@ -109,21 +109,21 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 1. Clone Riva Sample Apps repository:
 ```
-    git clone https://github.com/nvidia-riva/sample-apps.git
+	git clone https://github.com/nvidia-riva/sample-apps.git
 ```
 2. Enter Riva and Rasa Virtual Assistant directory:  
 ```
-    cd sample-apps/virtual-assistant-rasa
+	cd sample-apps/virtual-assistant-rasa
 ```  
 3. Create parent directory for all Python virtual environments we will be using for this sample:  
 ```
-    mkdir pythonenvs
+	mkdir pythonenvs
 ```    
 4. Create Python virtual environment for Rasa text-based chatbot and install necessary libraries:  
 	4.1. Create and activate Python virtual environment for Rasa text-based chatbot:  
 	```
-		python3 -m venv pythonenvs/rasa
-		. pythonenvs/rasa/bin/activate
+	python3 -m venv pythonenvs/rasa
+	. pythonenvs/rasa/bin/activate
 	```  
 	4.2. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:  
 	```
