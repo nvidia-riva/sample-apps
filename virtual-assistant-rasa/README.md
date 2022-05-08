@@ -265,32 +265,32 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	5.3. Run the Rasa training.  
 		- For Riva NLP: Train the Rasa Core model.  
 		```
-			rasa train -c config/config_rivanlp.yml \
-				-d domain/domain_rivanlp.yml \
-				--out models/models_rivanlp/ \
-				--data data/nlu_rivanlp.yml \
-				data/rules_rivanlp.yml \
-				data/stories_rivanlp.yml
-		```
+			rasa train -c config/config_rivanlp.yml \  
+				-d domain/domain_rivanlp.yml \  
+				--out models/models_rivanlp/ \  
+				--data data/nlu_rivanlp.yml \  
+				data/rules_rivanlp.yml \  
+				data/stories_rivanlp.yml  
+		```  
 		- For Rasa NLU: Train the Rasa NLU and Rasa Core models.  
 		```
-			rasa train -c config/config_rasanlp.yml \
-				-d domain/domain_rasanlp.yml \
-				--out models/models_rasanlp/ \
-				--data data/nlu_rasanlp.yml \
-				data/rules_rasanlp.yml data/stories_rasanlp.yml
-		```
+			rasa train -c config/config_rasanlp.yml \  
+				-d domain/domain_rasanlp.yml \  
+				--out models/models_rasanlp/ \  
+				--data data/nlu_rasanlp.yml \  
+				data/rules_rasanlp.yml data/stories_rasanlp.yml  
+		```  
 	5.4. Run the Rasa server.  
 		- For Riva NLP.  
 		```
-			rasa run -m models/models_rivanlp/ --enable-api \
-			--log-file out.log --endpoints endpoints.yml
-		```
+			rasa run -m models/models_rivanlp/ --enable-api \  
+			--log-file out.log --endpoints endpoints.yml  
+		```  
 		- For Rasa NLU.  
 		```
-			rasa run -m models/models_rasanlp/ --enable-api \
-			--log-file out.log --endpoints endpoints.yml
-		```
+			rasa run -m models/models_rasanlp/ --enable-api \  
+			--log-file out.log --endpoints endpoints.yml  
+		```  
 
 6. Start the Riva Chatbot server.  
 	6.1. Activate the Python virtual environment for the weather web application.
