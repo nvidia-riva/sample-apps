@@ -53,6 +53,13 @@ coordinates the workflow with Riva Services and Rasa, then interacts with the en
 :alt: Riva ASR + Riva TTS + Riva NLP + Rasa dialog manager
 :width: 800
 ```
+<img src="./img/riva-nlp.png"
+     alt="Riva ASR + Riva TTS + Riva NLP + Rasa dialog manager"
+     style="float: left; margin-right: 10px; width: 800;" />
+     
+<img src="./img/rasa-nlu.png"
+     alt="Riva ASR + Riva TTS + Rasa NLU + Rasa dialog manager"
+     style="float: left; margin-right: 10px; width: 800;" />
 
 ```{image} ./img/rasa-nlu.png
 :alt: Riva ASR + Riva TTS + Rasa NLU + Rasa dialog manager
