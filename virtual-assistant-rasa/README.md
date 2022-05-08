@@ -148,11 +148,11 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		pip3 install -U pip
 	```  
 	5.3. Install Riva client libraries:  
-		5.3.1. Download the Riva Quick Start scripts, if not already done.
+		5.3.1. Download the Riva Quick Start scripts, if not already done.  
 		```
 			ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"
 		```  
-		5.3.2. Install the Riva client library.
+		5.3.2. Install the Riva client library.  
 		```
 			cd riva_quickstart_v<x.y.z>  
 			pip install riva_api-<x.y.z>-py3-none-any.whl
