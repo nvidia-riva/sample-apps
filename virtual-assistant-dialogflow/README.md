@@ -1,8 +1,6 @@
-(google-dialogflow)=
 # Virtual Assistant (with Google Dialogflow)
 
-This Virtual Assistant (with Google Dialogflow) sample application demonstrates the integration of Google Dialogflow
-and Riva Speech Services in the form of a weather chatbot web application.
+This Virtual Assistant (with Google Dialogflow) sample application demonstrates the integration of Google Dialogflow and Riva Speech Services in the form of a weather chatbot web application.
 
 In this sample, we use Riva for ASR and TTS and Google Dialogflow for NLP and Dialog Management (DM).
 
@@ -40,10 +38,9 @@ Here is the implementation at a high-level:
 
 ### Architecture
 
-```{image} img/riva-dialogflow.png
-:alt: Riva and Dialogflow virtual assistant architecture
-:width: 800
-```
+<img src="./img/riva-dialogflow.png"
+     alt="Riva and Dialogflow virtual assistant architecture"
+     style="float: left; margin-right: 10px; width: 800;" />
 
 The above diagram shows the architecture of the Riva and Dialogflow Weatherbot. Audio input from the user is
 collected through the microphone by the web UI of the Weatherbot Client application. The input audio from the user
@@ -283,4 +280,11 @@ and the wind speed is 9 miles per hour.
 
 ## License
 
-For applicable licenses, refer to the {ref}`license` section.
+[End User License Agreement](https://developer.download.nvidia.com/licenses/Riva_Pre-Release_Evaluation_License_23Jan2020.pdf) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications, you accept the terms and conditions of these licenses.  <br>
+Here is the license information for the libraries we are using in this sample:
+1. [google-cloud-dialogflow](https://github.com/googleapis/python-dialogflow) - The License for this library can be found [here](https://github.com/googleapis/python-dialogflow/blob/master/LICENSE).
+2. [actions-on-google](https://github.com/actions-on-google/actions-on-google-nodejs) -  The License for this library can be found [here](https://github.com/actions-on-google/actions-on-google-nodejs/blob/HEAD/LICENSE).
+3. [firebase-admin](https://www.npmjs.com/package/firebase-admin) -  The License for this library can be found [here](https://www.npmjs.com/package/firebase-admin#license).
+4. [firebase-functions](https://github.com/firebase/firebase-functions) -  The License for this library can be found [here](https://github.com/firebase/firebase-functions/blob/HEAD/LICENSE).
+5. [dialogflow](https://github.com/googleapis/nodejs-dialogflow) -  The License for this library can be found [here](https://github.com/googleapis/nodejs-dialogflow/blob/master/LICENSE).
+6. [dialogflow-fulfillment](https://github.com/dialogflow/dialogflow-fulfillment-nodejs) -  The License for this library can be found [here](https://github.com/dialogflow/dialogflow-fulfillment-nodejs/blob/master/LICENSE).
