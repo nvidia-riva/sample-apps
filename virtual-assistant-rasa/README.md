@@ -49,12 +49,12 @@ coordinates the workflow with Riva Services and Rasa, then interacts with the en
 
 ### Architecture
 
-```{image} img/riva-nlp.png
+```{image} ./img/riva-nlp.png
 :alt: Riva ASR + Riva TTS + Riva NLP + Rasa dialog manager
 :width: 800
 ```
 
-```{image} img/rasa-nlu.png
+```{image} ./img/rasa-nlu.png
 :alt: Riva ASR + Riva TTS + Rasa NLU + Rasa dialog manager
 :width: 800
 ```
