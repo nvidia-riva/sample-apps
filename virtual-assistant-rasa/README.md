@@ -171,9 +171,8 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-2. Clone Riva Sample Apps repository, if not already done:
+2. Navigate to the Riva and Rasa Virtual Assistant directory in the Riva sample-apps github repository that you cloned in the [Setup section](README.md#setup)'s, step 1.
 ```
-	git clone https://github.com/nvidia-riva/sample-apps.git  
 	cd sample-apps/virtual-assistant-rasa
 ```  
 
