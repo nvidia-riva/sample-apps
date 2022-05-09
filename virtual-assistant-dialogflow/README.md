@@ -111,7 +111,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		pip3 install -U pip
 	```  
 	2. Install Riva client libraries:  
-		1. Download the Riva Quick Start scripts, if not already done.  
+		1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)  
 		```
 			ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"  
 		```  
@@ -141,9 +141,8 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-2. Clone Riva Sample Apps repository, if not already done:
+2. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample apps github repository that you cloned in the Requirements section, step 1:
 ```
-	git clone https://github.com/nvidia-riva/sample-apps.git  
 	cd sample-apps/virtual-assistant-dialogflow
 ```  
 
@@ -173,22 +172,23 @@ For example:
 		1. Open the **Fulfillment** section and enable the **Inline Editor** in the Dialogflow console.
 		2. Copy and paste the contents of the `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/fulfillment/index.js` into `index.js` under the **Inline Editor**.
 		3. Copy and paste the contents of the `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/fulfillment/package.json` into `package.json` under the **Inline Editor**.
-	4. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new Weatherstack API key can be obtained from [here](https://weatherstack.com/).
+		4. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new Weatherstack API key can be obtained from [here](https://weatherstack.com/).
 
 5. Start Riva and Dialogflow virtual assistant web application.
-	1. Activate the chatbot client Python environment.
+	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the Requirements section, step 7.
+	2. Activate the chatbot client Python environment.
 	```
 		. /pythonenvs/dialogflow/bin/activate
 	```
-        2. Navigate to the chatbot web application folder.
+        3. Navigate to the chatbot web application folder.
 	```
 		cd dialogflow-riva-weatherbot-webapp
 	```
-        3. Start the chatbot web server.
+        4. Start the chatbot web server.
 	```
 		python3 main.py
 	```
-	4.. Open the interface in a web browser `https://<riva chatbot server host IP>:6006/rivaWeather`, e.g. [https://0.0.0.0:6006/rivaWeather](https://0.0.0.0:6006/rivaWeather).
+	5. Open the interface in a web browser `https://<riva chatbot server host IP>:6006/rivaWeather`, e.g. [https://0.0.0.0:6006/rivaWeather](https://0.0.0.0:6006/rivaWeather).
 
 ## Sample Conversations
 
