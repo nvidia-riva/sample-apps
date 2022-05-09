@@ -139,145 +139,56 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 ## Running the Demo
 
-1. Start Riva Speech Services per [Riva Quick Start Guide](../quick-start-guide).
+1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-2. Run Riva and the Dialogflow Virtual Assistant.
+2. Clone Riva Sample Apps repository, if not already done:
+```
+	git clone https://github.com/nvidia-riva/sample-apps.git  
+	cd sample-apps/virtual-assistant-dialogflow
+```  
 
-   1. Run the Riva Sample container.
-       1. Create a directory to hold the code for Riva and the Dialogflow Virtual Assistant.
-      
-          ```bash
-          mkdir riva-dialogflow-va-temp
-          ```
-      
-       2. Pull the Riva Sample container.
-      
-          ```
-          docker pull nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples
-          ```
-      
-       3. Run the Riva Sample container.
-      
-          ```bash
-          docker run -it --rm -p 6006:6006 -v <Path to riva-dialogflow-va-temp>:/riva-dialogflow-va-temp nvcr.io/{NgcOrgTeam}/riva-speech-client:{SamplesVersionNum}-samples /bin/bash
-          ```
-      
-       4. Navigate to the `samples/virtual-assistant-dialogflow` directory.
-      
-          ```bash
-          cd samples/virtual-assistant-dialogflow
-          ```
-      
-       5. Modify the API endpoint setting per the {ref}`df-network-configuration` section.
-
-     2. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow can take some time to complete. We have
-        tried to complete as much of the set up as possible in the Docker container, however, the following steps must
-        be completed.
-    
-        1. Read through [Dialogflow Basics](https://cloud.google.com/dialogflow/es/docs/basics) and
-            [About the Google Cloud Console](https://cloud.google.com/dialogflow/es/docs/quick/setup#gcp-console)
-            to better understand the basics of Dialogflow.
-        
-        2. Follow the steps in [Create a Project](https://cloud.google.com/dialogflow/es/docs/quick/setup#project)
-            and [Enable the API](https://cloud.google.com/dialogflow/es/docs/quick/setup#api) from the Dialogflow setup.
-            [Enable Billing](https://cloud.google.com/dialogflow/es/docs/quick/setup#billing) and
-            [Enable audit logs](https://cloud.google.com/dialogflow/es/docs/quick/setup#audit-logs) are not needed for this demo.
-        
-        3. Follow the [Set up Authentication](https://cloud.google.com/dialogflow/es/docs/quick/setup#auth) instructions.
-            When done, run the command in the [Use the service account key file in your environment](https://cloud.google.com/dialogflow/es/docs/quick/setup#auth-env)
-            step in the Riva Samples container.
-        
-            ```bash
-            export GOOGLE_APPLICATION_CREDENTIALS="<Path to key json file>"
-            ```
-        
-        4. [Install and initialize the Cloud SDK](https://cloud.google.com/dialogflow/es/docs/quick/setup#sdk) in the container, except for initilializing gcloud CLI. In the
-            Riva Samples container, run:
-        
-            ```bash
-            gcloud init
-            ```
-        
-            During this command, you will need to provide your Project ID. To find your Project ID, perform the following steps:
-        
-            1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner.
-            2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
-        
-        5. Complete [Test the SDK and authentication](https://cloud.google.com/dialogflow/es/docs/quick/setup#auth-test).
-        
-            ```bash
-            gcloud auth application-default print-access-token
-            ```
-        
-        6. Skip [Install the Dialogflow client library](https://cloud.google.com/dialogflow/es/docs/quick/setup#lib). This step has been completed in the Riva Samples container, therefore, no action is needed.
-        
-        7. In `config.py`, update `PROJECT_ID` parameter with your project ID. To find your Project ID, perform the following steps:
-        
-            1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner.
-            2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
-
-     3. Initialize and start the Dialogflow Weatherbot.
-  
-        1. Copy the code from the Samples container to the host system.
-        
-            ```bash
-            cp -r /workspace/samples/virtual-assistant-dialogflow/* /riva-dialogflow-va-temp/
-            ```
-        
-        2. Follow the steps [here](https://cloud.google.com/dialogflow/es/docs/quick/build-agent#create-an-agent) to create an agent.
-        
-        3. Click the **Setting** button next to the agent name in the Dialogflow console. Under the **Export and
-            Import** tab, choose **Restore From ZIP** and upload the zipped folder from your host at
-            `<Path to riva-dialogflow-va-temp>/dialogflow-weatherbot/dialogflow-weatherbot.zip`.
-        
-        4. Add fullfillment.
-        
-            1. Open the **Fulfillment** section and enable the **Inline Editor** in the Dialogflow console.
-            2. Copy and paste the contents of the `<Path to riva-dialogflow-va-temp>/dialogflow-weatherbot/fulfillment/index.js`
-              into `index.js` under the **Inline Editor**.
-            3. Copy and paste the contents of the `<Path to riva-dialogflow-va-temp>/dialogflow-weatherbot/fulfillment/package.json`
-              into `package.json` under the **Inline Editor**.
-        
-        5. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new
-            Weatherstack API key can be obtained from [here](https://weatherstack.com/).
-
-     4. Start Riva and the Dialogflow chatbot client.
-   
-        1. Activate the chatbot client Python environment.
-        
-            ```bash
-            . /pythonenvs/dialogflow/bin/activate
-            ```
-        
-        2. Navigate to the chatbot client folder.
-        
-            ```bash
-            cd dialogflow-riva-weatherbot-webapp
-            ```
-        
-        3. Start the chatbot web server.
-        
-            ```bash
-            python3 main.py
-            ```
-
-    5. Open the interface in a web browser `https://<riva chatbot server host IP>:6006/rivaWeather`, e.g. [https://0.0.0.0:6006/rivaWeather](https://0.0.0.0:6006/rivaWeather).
-
-(df-network-configuration)=
-
-## Network Configuration
-
+3. Modify the API endpoint setting in the code base for inter-service communication:  
 Update the `config.py` script for inter-service communication.
-
-```python
-riva_config = {
-    "RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
-    "...": "..."
-}
+```
+	riva_config = {
+	    ...
+	    "RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
+	    ...
+	}
+```
+For example:  
+```
+	# uncomment and populate the section below
+	riva_config = {
+		...
+		"RIVA_SPEECH_API_URL": "10.20.30.40:50051",
+		...
+	}
 ```
 
-In the case where one is using `_localhost_`, the `"RIVA_SPEECH_API_URL"` must be set to the local
-machine's IP, instead of `_localhost_`.
+4. Initialize and start the Dialogflow Weatherbot.
+	1. Follow the steps [here](https://cloud.google.com/dialogflow/es/docs/quick/build-agent#create-an-agent) to create an agent.
+	2. Click the **Setting** button next to the agent name in the Dialogflow console. Under the **Export and Import** tab, choose **Restore From ZIP** and upload the zipped folder from your host at `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/dialogflow-weatherbot.zip`.
+	3. Add fullfillment.    
+		1. Open the **Fulfillment** section and enable the **Inline Editor** in the Dialogflow console.
+		2. Copy and paste the contents of the `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/fulfillment/index.js` into `index.js` under the **Inline Editor**.
+		3. Copy and paste the contents of the `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/fulfillment/package.json` into `package.json` under the **Inline Editor**.
+	4. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new Weatherstack API key can be obtained from [here](https://weatherstack.com/).
+
+5. Start Riva and Dialogflow virtual assistant web application.
+	1. Activate the chatbot client Python environment.
+	```
+		. /pythonenvs/dialogflow/bin/activate
+	```
+        2. Navigate to the chatbot web application folder.
+	```
+		cd dialogflow-riva-weatherbot-webapp
+	```
+        3. Start the chatbot web server.
+	```
+		python3 main.py
+	```
+	4.. Open the interface in a web browser `https://<riva chatbot server host IP>:6006/rivaWeather`, e.g. [https://0.0.0.0:6006/rivaWeather](https://0.0.0.0:6006/rivaWeather).
 
 ## Sample Conversations
 
