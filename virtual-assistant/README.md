@@ -118,12 +118,12 @@ It is possible to ask the bot the following types of questions:
 * What is the humidity in Tahoe?
 
 ## Limitations
-* The provided samples are not complete chatbots, but are intended as simple examples of how to build basic task-oriented chatbots with Riva. Consequently, the intent classifier and slot filling models have been trained with small amounts of data and are not expected to be highly accurate.
+* The provided sample is not complete chatbots, but is intended as simple examples of how to build basic task-oriented chatbots with Riva. Consequently, the intent classifier and slot filling model have been trained with small amounts of data and are not expected to be highly accurate.
 * The Riva NLP sample supports intents for weather, temperature, rain, humidity, sunny, cloudy and snowfall checks. It does not support general conversational queries or other domains.
-* Both the Riva NLP and Rasa NLU samples support only 1 slot for city. Neither takes into account the day associated with the query.
-* These samples support up to four concurrent users. This restriction is not because of Riva, but because of the web framework (Flask and Flask-ScoketIO) that is being used. The socket connection is to stream audio to (TTS) and from (ASR); you are unable to sustain more than four concurrent socket connections.
+* The Riva NLP sample supports only 1 slot for city. It also does not take into account the day associated with the query.
+* The sample supports up to four concurrent users. This restriction is not because of Riva, but because of the web framework (Flask and Flask-ScoketIO) that is being used. The socket connection is to stream audio to (TTS) and from (ASR); you are unable to sustain more than four concurrent socket connections.
 * The chatbot application is not optimized for low latency in the case of multiple concurrent users.
-* Some erratic issues have been observed with the chatbot samples on the Firefox browser. The most common issue is the TTS output being taken in as input by ASR for certain microphone gain values.
+* Some erratic issues have been observed with the chatbot sample on the Firefox browser. The most common issue is the TTS output being taken in as input by ASR for certain microphone gain values.
 
 ## License
 The [NVIDIA Riva License Agreement](https://developer.nvidia.com/riva/ga/license) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications here, you accept the terms and conditions of these licenses.   <br>
