@@ -75,6 +75,100 @@ Riva and Dialogflow Chatbot).
     operations.
   - Creates one instance of the Chatbot class per conversation.
 
+## Requirements and Setup
+
+### Requirements: 
+Before you try running the Riva client, ensure you meet the following requirements:
+1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
+2. [Python 3](https://www.python.org/download/releases/3.0/)  
+
+### Setup:  
+
+1. Clone Riva Sample Apps repository:
+```
+	git clone https://github.com/nvidia-riva/sample-apps.git
+```
+2. Enter Riva and Dialogflow Virtual Assistant directory:  
+```
+	cd sample-apps/virtual-assistant-dialogflow
+```  
+
+
+
+
+
+
+
+3. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow consists of multiple steps and can take some time to complete. We have tried to simplify this process, by calling out steps that need and need not be run:
+	1. Read through [Dialogflow Basics](https://cloud.google.com/dialogflow/es/docs/basics) and [About the Google Cloud Console](https://cloud.google.com/dialogflow/es/docs/quick/setup#gcp-console) to better understand the basics of Dialogflow.
+	2. Follow the steps in [Create a Project](https://cloud.google.com/dialogflow/es/docs/quick/setup#project) and [Enable the API](https://cloud.google.com/dialogflow/es/docs/quick/setup#api) from the Dialogflow setup. [Enable Billing](https://cloud.google.com/dialogflow/es/docs/quick/setup#billing) and [Enable audit logs](https://cloud.google.com/dialogflow/es/docs/quick/setup#audit-logs) are not needed for this demo.
+	3. Follow the [Set up Authentication](https://cloud.google.com/dialogflow/es/docs/quick/setup#auth) instructions.
+	4. [Install and initialize the gcloud CLI](https://cloud.google.com/dialogflow/es/docs/quick/setup#sdk). 
+		During this command, you will need to provide your Project ID. To find your Project ID, perform the following steps:
+		1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner.
+		2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
+	5. Complete [Test the gcloud CLI and authentication](https://cloud.google.com/dialogflow/es/docs/quick/setup#auth-test) step.
+	6. [Install the Dialogflow client library](https://cloud.google.com/dialogflow/es/docs/quick/setup#lib). Complete in VM
+	7. In `config.py`, update `PROJECT_ID` parameter with your project ID. To find your Project ID, perform the following steps:
+		1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner. 
+		2. 2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
+
+
+
+
+
+
+4. Create parent directory for all Python virtual environments we will be using for this sample:  
+```
+	mkdir pythonenvs
+```    
+4. Create Python virtual environment for Dialogflow text-based chatbot and install necessary libraries:  
+	1. Create and activate Python virtual environment for Dialogflow text-based chatbot:  
+	```
+		python3 -m venv pythonenvs/dialogflow
+		. pythonenvs/dialogflow/bin/activate
+	```  
+	2. :  
+	```
+		echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-sdk -y && 
+		
+		pip3 install -r /workspace/requirements.txt && 
+		
+		pip3 install google-cloud-dialogflow==2.1.2
+	```  
+	3. Deactivate Rasa Python virtual environment:  
+	```
+		deactivate
+	```  
+5. Create Python virtual environment for Weatherbot web application, which uses Riva client, and install necessary libraries:  
+ 	1. Create and activate Python virtual environment for Weatherbot web application:
+	```
+		python3 -m venv pythonenvs/client  
+		. pythonenvs/client/bin/activate
+	```  
+	2. Upgrade `pip`:
+	```		
+		pip3 install -U pip
+	```  
+	3. Install Riva client libraries:  
+		1. Download the Riva Quick Start scripts, if not already done.  
+		```
+			ngc registry resource download-version "nvidia/riva/riva_quickstart:2.0.0"  
+		```  
+		2. Install the Riva client library.  
+		```
+			cd riva_quickstart_v<x.y.z>  
+			pip install riva_api-<x.y.z>-py3-none-any.whl  
+		```  
+	4. Upgrade `pip` and install Weatherbot dependencies. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
+	```
+		pip3 install -r requirements_client.txt
+	```  
+	5. Deactivate Weatherbot web application's Python virtual environment:
+	```
+		deactivate
+	```  
+
 ## Running the Demo
 
 1. Start Riva Speech Services per [Riva Quick Start Guide](../quick-start-guide).
