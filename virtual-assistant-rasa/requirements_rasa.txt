@@ -1,0 +1,4 @@
+six
+gast
+rasa==2.8.11
+rasa[convert]==2.8.11

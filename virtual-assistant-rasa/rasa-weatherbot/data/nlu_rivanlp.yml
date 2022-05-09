@@ -1,0 +1,15 @@
+# ==============================================================================
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+#
+# The License information can be found under the "License" section of the
+# README.md file.
+# ==============================================================================
+
+# This data is not used for any Riva NLP training activity. If there were no nlu samples added here, 
+# the nlu pipeline doesn't get created and saved during training.
+# Hence, just 1 dummy sample has been added here.
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey

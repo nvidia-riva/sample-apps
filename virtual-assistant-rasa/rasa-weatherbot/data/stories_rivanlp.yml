@@ -1,0 +1,779 @@
+# ==============================================================================
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+#
+# The License information can be found under the "License" section of the
+# README.md file.
+# ==============================================================================
+
+version: "2.0"
+stories:
+- story: weather 1
+  steps:
+  - intent: weather__weather
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+- story: weather 2
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+- story: weather 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__weather
+  - action: action_weather
+- story: weather 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__weather
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_weather
+- story: weather 5
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: weather__weather
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+- story: weather 6
+  steps:
+  - intent: weather__weather
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_weather
+  - intent: weather__weather
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_weather
+- story: weather 7
+  steps:
+  - intent: weather__weather
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_weather
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+- story: weather 8
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+  - intent: weather__weather
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_weather
+- story: weather 9
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__weather
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_weather
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_weather
+- story: weather 10
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_weather
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_weather
+- story: temperature 1
+  steps:
+  - intent: weather__temprature
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+- story: temperature 2
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+- story: temperature 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__temprature
+  - action: action_temperature
+- story: temperature 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__temprature
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_temperature
+- story: temperature 5
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: weather__temprature
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+- story: temperature 6
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+- story: temperature 8
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: weather__temprature
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_temperature
+- story: temperature 9
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+- story: temperature 10
+  steps:
+  - intent: weather__temprature
+    entities:
+    - city: London
+  - slot_was_set:
+    - city: London
+  - action: action_temperature
+- story: temperature 11
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__temprature
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_temperature
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_temperature
+- story: temperature 12
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_temperature
+- story: rainfall 1
+  steps:
+  - intent: weather__rainfall
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_rainfall
+- story: rainfall 2
+  steps:
+  - intent: weather__rainfall
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_rainfall
+- story: rainfall 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__rainfall
+  - action: action_rainfall
+- story: rainfall 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__rainfall
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_rainfall
+- story: rainfall 5
+  steps:
+  - intent: weather__rainfall
+  - action: utter_ask_location
+  - intent: weather__rainfall
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_rainfall
+- story: rainfall 6
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__rainfall
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_rainfall
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_rainfall
+- story: rainfall 7
+  steps:
+  - intent: weather__rainfall
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_rainfall
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_rainfall
+- story: sunny 1
+  steps:
+  - intent: weather__sunny
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_sunny
+- story: sunny 2
+  steps:
+  - intent: weather__sunny
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_sunny
+- story: sunny 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__sunny
+  - action: action_sunny
+- story: sunny 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__sunny
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_sunny
+- story: sunny 5
+  steps:
+  - intent: weather__sunny
+  - action: utter_ask_location
+  - intent: weather__sunny
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_sunny
+- story: cloudy 1
+  steps:
+  - intent: weather__cloudy
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_cloudy
+- story: cloudy 2
+  steps:
+  - intent: weather__cloudy
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_cloudy
+- story: cloudy 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__cloudy
+  - action: action_cloudy
+- story: cloudy 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__cloudy
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_cloudy
+- story: cloudy 5
+  steps:
+  - intent: weather__cloudy
+  - action: utter_ask_location
+  - intent: weather__cloudy
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_cloudy
+- story: humidity 1
+  steps:
+  - intent: weather__humidity
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_humidity
+- story: humidity 2
+  steps:
+  - intent: weather__humidity
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_humidity
+- story: humidity 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__humidity
+  - action: action_humidity
+- story: humidity 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__humidity
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_humidity
+- story: humidity 5
+  steps:
+  - intent: weather__humidity
+  - action: utter_ask_location
+  - intent: weather__humidity
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_humidity
+- story: snow 1
+  steps:
+  - intent: weather__snow
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_snow
+- story: snow 2
+  steps:
+  - intent: weather__snow
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_snow
+- story: snow 3
+  steps:
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: utter_ask_action
+  - intent: weather__snow
+  - action: action_snow
+- story: snow 4
+  steps:
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: utter_ask_action
+  - intent: weather__snow
+    entities:
+    - city: london
+  - slot_was_set:
+    - city: london
+  - action: action_snow
+- story: snow 5
+  steps:
+  - intent: weather__snow
+  - action: utter_ask_location
+  - intent: weather__snow
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_snow
+- story: snow 6
+  steps:
+  - intent: weather__snow
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: venice
+  - slot_was_set:
+    - city: venice
+  - action: action_snow
+  - intent: specify_city
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_snow
+- story: weather + temperature 1
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: weather__weather
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__temprature
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_temperature
+- story: weather + temperature 2
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__temprature
+  - action: action_temperature
+- story: weather + temperature + rainfall 1
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__temprature
+  - action: action_temperature
+  - intent: weather__rainfall
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_rainfall
+- story: weather + temperature + rainfall 2
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__rainfall
+  - action: action_rainfall
+  - intent: weather__temprature
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_temperature
+- story: weather + sunny + cloudy 1
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__weather
+  - action: action_weather
+  - intent: weather__sunny
+  - action: action_sunny
+  - intent: weather__cloudy
+  - action: action_cloudy
+- story: temperature + snow 1
+  steps:
+  - intent: specify_city
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: utter_ask_action
+  - intent: weather__temprature
+  - action: action_temperature
+  - intent: weather__snow
+  - action: action_snow
+- story: temperature + humidity + snow 2
+  steps:
+  - intent: weather__temprature
+    entities:
+    - city: italy
+  - slot_was_set:
+    - city: italy
+  - action: action_temperature
+  - intent: weather__humidity
+  - action: action_humidity
+  - intent: weather__snow
+  - action: action_snow
+- story: temperature + humidity + snow 3
+  steps:
+  - intent: weather__temprature
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_temperature
+  - intent: weather__humidity
+  - action: action_humidity
+  - intent: weather__snow
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_snow
+- story: weather + temperature + rainfall + sunny + cloudy + humidity + snow 1
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__temprature
+  - action: action_temperature
+  - intent: weather__rainfall
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_rainfall
+  - intent: weather__sunny
+  - action: action_sunny
+  - intent: weather__cloudy
+    entities:
+    - city: new york
+  - slot_was_set:
+    - city: new york
+  - action: action_cloudy
+  - intent: weather__humidity
+  - action: action_humidity
+  - intent: weather__snow
+  - action: action_snow
+- story: weather + temperature + rainfall + sunny + cloudy + humidity + snow 2
+  steps:
+  - intent: weather__weather
+  - action: utter_ask_location
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_weather
+  - intent: weather__temprature
+  - action: action_temperature
+  - intent: weather__rainfall
+    entities:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - action: action_rainfall
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_rainfall
+  - intent: weather__sunny
+  - action: action_sunny
+  - intent: weather__cloudy
+    entities:
+    - city: new york
+  - slot_was_set:
+    - city: new york
+  - action: action_cloudy
+  - intent: weather__humidity
+  - action: action_humidity
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_humidity
+  - intent: weather__snow
+  - action: action_snow
+  - intent: specify_city
+    entities:
+    - city: milan
+  - slot_was_set:
+    - city: milan
+  - action: action_snow

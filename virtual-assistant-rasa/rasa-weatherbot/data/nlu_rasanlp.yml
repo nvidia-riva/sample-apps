@@ -1,0 +1,284 @@
+# ==============================================================================
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+#
+# The License information can be found under the "License" section of the
+# README.md file.
+# ==============================================================================
+
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hello.
+    - hi
+    - good morning
+    - good morning.
+    - good evening
+    - hey there
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - goodbye.
+    - see you around
+    - see you later
+    - see you later.
+- intent: affirm
+  examples: |
+    - yes
+    - yeah.
+    - indeed
+    - of course
+    - that sounds good
+    - that sounds good.
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - nope.
+    - never
+    - I don't think so
+    - I don't think so.
+    - don't like that
+    - no way
+    - not really
+    - don't like that.
+- intent: mood_great
+  examples: |
+    - perfect
+    - very good
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I'm good
+    - I am good
+    - I feel good
+    - I feel great
+- intent: mood_unhappy
+  examples: |
+    - sad
+    - very sad
+    - unhappy
+    - bad
+    - very bad
+    - awful
+    - terrible
+    - not very good
+    - extremely sad
+    - so sad
+    - I am so sad
+    - I am sad
+    - I feel so sad
+    - I feel sad
+    - I feel terrible
+    - I feel awful
+    - I am not very good
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - who made you?
+    - what is your purpose?
+- intent: bot_name
+  examples: |
+    - What is your name?
+    - What do I call you?
+    - What are you called?
+    - What are you named?
+    - What should I call you?
+- intent: weather
+  examples: |
+    - what is weather in [San Francisco](city)?
+    - what is weather in [London](city)?
+    - what is the weather?
+    - what is the weather like?
+    - what is the weather like today?
+    - What weather can I expect today in [Toronto](city)?
+    - What weather can I expect today in [San Francisco](city)?
+    - What do you think the weather will be like today?
+    - What is the expected forecast for this weekend in [Houston](city)?
+    - What's the weather in [Berlin](city) at the moment?
+    - What's the weather in [Los Angeles](city) at the moment?
+    - Can you tell me about weather in [London](city)?
+    - Show me what's the weather in [Paris](city)
+    - I wonder what is the weather in [Venice](city) right now?
+    - Is the weather nice in [Barcelona](city) today?
+    - I am going to [Seattle](city) today and I wonder what is the weather out there?
+    - I am planning my trip to [Pittsburgh](city). What is the weather out there?
+    - Show me the weather in [New York](city), please
+    - Tell me the weather in [Vancouver](city)
+    - The weather condition in [Italy](city)
+    - What are the climatic conditions in [Sacramento](city)?
+    - How is the weather in [Santa Clara](city)?
+    - Can you tell me about current weather in [Los Altos Hills](city)?
+    - What are current climatic conditions in [Austin](city)?
+    - Can you tell me about weather in [Los Angeles](city)?
+    - Show me what's the weather in [Los Angeles](city)
+    - I wonder what is the weather in [Los Angeles](city) right now?
+    - Is the weather nice in [Los Angeles](city) today?
+    - I am going to [Los Angeles](city) today and I wonder what is the weather out there?
+    - I am planning my trip to [Los Angeles](city). What is the weather out there?
+    - Tell me the weather in [Los Angeles](city)
+    - The weather condition in [Los Angeles](city)
+    - What are the climatic conditions in [Los Angeles](city)?
+    - Can you tell me about current weather in [Omaha](city)?
+    - What are current climatic conditions in [Los Angeles](city)?
+- intent: temperature
+  examples: |
+    - heat
+    - cold
+    - hot
+    - chilly
+    - temperature
+    - Can you tell me what's the temperature in [Austin](city)?
+    - What's the temperature in [Dallas](city) today?
+    - What is the temperature in [Santa Clara](city)?
+    - Is the temperature too hot in [Los Angeles](city) ?
+    - Is is cold in [Chicago](city) today?
+    - Is it chilly in [Chicago](city)?
+    - Is it hot in [New York](city) at the moment?
+    - How hot is it in [San Francisco](city) today?
+    - Is there a lot of heat in [Dallas](city) today?
+    - I wonder what is the temperature in [Houston](city)?
+    - I wonder if it's hot in [Pittsburgh]
+    - Is it too hot to go outside?
+    - Is it too cold to go outside?
+    - Is it too chilly to go out in [Santa Clara](city) today?
+    - Is the temperature too hot in [Austin](city) right now?
+    - Can you tell me how hot is it in [Miami](city)?
+    - Can you tell me how chilly is it in [London](city)?
+    - Is is supposed to be too warm today?
+    - Show me the temperature in [Sacramento](city).
+    - It feels like summer, what is the temperature out there?
+    - Do you think it's hot outside?
+    - Do you think I should wear a sweater?
+- intent: rainfall
+  examples: |
+    - rain
+    - rainy
+    - do I need to carry umbrella?
+    - is it going to rain?
+    - What is the chance of precipitation?
+    - Will it rain in [Omaha](city)?
+    - Will it rain in [San Francisco](city)?
+    - Is it rainy today?
+    - Do you think it is raining in [Atlanta](city)?
+    - How much precipitation in [Phoenix](city)?
+    - Is it raining in [Madison]?
+    - Is it rainy in [Chicago](city) right now?
+    - Do I need an umbrella in [San Francisco](city) today?
+    - I hope it isn't raining outside
+    - Can you tell me if it will rain?
+    - Please tell me about the precipitation
+    - Please tell me about the rainfall
+    - What is the precipitation in [Houston](city) today?
+    - Is it raining in [London] right now?
+    - I hope it doesn't rain today
+    - Is there going to be a thunderstorm?
+    - Show me the amount of precipitation.
+- intent: sunny
+  examples: |
+    - sunny
+    - is it sunny?
+    - is it sunny in [San Francisco](city) today?
+    - is the sun out?
+    - is it sunny outside?
+    - In [Berlin](city), is it sunny right now?
+    - Can you tell me if the sun is out in [Milan](city) today?
+    - How sunny is it in [Detroit](city)?
+    - Is the sky clear and sunny?
+    - I wonder if the sun is out in [Madrid](city) at the moment.
+    - Do you think it's sunny outside?
+- intent: cloudy
+  examples: |
+    - cloudy
+    - is it cloudy?
+    - is it cloudy in [San Francisco](city) today?
+    - I wonder if it's cloudy outside
+    - Can you see a lot of clouds in the sky?
+    - is it cloudy outside?
+    - In [Berlin](city), is it cloudy right now?
+    - Can you tell me if it is overcast in [Milan](city) today?
+    - Is the sun behind clouds in [Detroit](city)?
+    - I wonder if the clouds are out in [Madrid](city) at the moment.
+    - Do you think it's overcast?
+    - Isn't it always cloudy in [London](city)?
+- intent: humidity
+  examples: |
+    - humid
+    - dry
+    - humidity
+    - moisture
+    - moist
+    - is it humid in [New York](city)?
+    - Do you think it's too humid out there?
+    - is the weather too humid in [Chicago](city)?
+    - is there a lot of moisture in the air in [Seattle](city)?
+    - Is it too humid in [Boston](city)?
+    - What is the humidity in [Austin](city)?
+    - In [Boston](city), is it humid right now?
+    - How humid is it in [Denver](city) at the moment?
+    - Is the weather dry in [Boston](city)?
+    - Is the air too dry in [San Diego](city)?
+    - Is the air moist in [New York](city)?
+    - What is the moisture level in [Dallas](city)?
+- intent: windy
+  examples: |
+    - is it windy?
+    - windy
+    - wind
+    - storm
+    - stormy
+    - is it stormy in [Denver](city)?
+    - What is the wind speed in [New York](city)?
+    - Is it windy in [Chicago](city)?
+    - How fast is the wind blowing in [Paris](city)?
+    - Is it windy outside?
+    - How windy is it today?
+    - I was wondering how windy is it outside?
+    - Is it breezy outside?
+    - I need a jacket, how windy is it here in [Los Angeles](city)?
+    - are we having a storm?
+- intent: snow
+  examples: |
+    - snowy
+    - snowfall
+    - flakes
+    - blizzard
+    - sleet
+    - flurry
+    - is it snowy in [San Jose](city)?
+    - is it snowy?
+    - ice
+    - is it snowing in [Denver](city)?
+    - Is there a flurry in [New York](city)?
+    - Is it hailing in [Chicago](city)?
+    - How much snow is there in [Paris](city)?
+    - Is it snowy outside?
+    - How windy is it today?
+    - I was wondering how if its snowing outside
+    - Is it snowing outside?
+    - isn't is snowing here in [Los Angeles](city)?
+    - Do you think it will snow today?
+    - What is the status of snowfall?
+- intent: specify_city
+  examples: |
+    - In [London](city)
+    - In [Los Angeles](city)
+    - For [London](city)
+    - In [Los Altos Hills](city)
+    - For [Los Altos Hills](city)
+    - [Los Angeles](city)
+    - [Omaha](city)
+    - Oh, sorry, in [Los Angeles](city)
+    - For [Los Angeles](city)
+    - Oh, sorry, in [Milan](city)
+    - Oh, I was talking about [Paris](city)

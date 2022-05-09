@@ -1,0 +1,82 @@
+# ==============================================================================
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+#
+# The License information can be found under the "License" section of the
+# README.md file.
+# ==============================================================================
+
+version: "2.0"
+
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - bot_name
+  - weather
+  - temperature
+  - rainfall
+  - sunny
+  - cloudy
+  - snow
+  - humidity
+  - windy
+  - specify_city
+
+
+entities:
+  - city
+
+
+slots:
+  city:
+    type: text
+
+
+responses:
+  utter_default: 
+  - text: "Sorry, I did not get that! Can you please rephrase?"
+  
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is a joke to cheer you up: \n What happens when a frog's car breaks down? \n It gets toad. "
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  utter_bot_name:
+  - text: "My name is RiSa."
+
+  utter_ask_location:
+  - text: "For which location?"
+  
+  utter_ask_action:
+  - text: "Got your city. What would you like to do now?"
+
+
+actions:
+  - action_weather
+  - action_temperature
+  - action_rainfall
+  - action_sunny
+  - action_cloudy
+  - action_humidity
+  - action_windy
+  - action_snow
+
+
+session_config:
+  session_expiration_time: 30
+  carry_over_slots_to_new_session: False
