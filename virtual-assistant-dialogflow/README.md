@@ -94,35 +94,23 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	cd sample-apps/virtual-assistant-dialogflow
 ```  
 
-3. Create parent directory for all Python virtual environments we will be using for this sample:  
+3. Create parent directory for the Python virtual environment we will be using for this sample:  
 ```
 	mkdir pythonenvs
 ```    
 
-4. Create and activate Python virtual environment for Dialogflow text-based chatbot. Upgrade pip in the virtual environment:  
+4. Create and activate Python virtual environment for this sample. We will be using this virtual environment for all dependent libraries, including Riva client library, weatherbot web application libraries, and Google Dialogflow client library:  
 ```
 	python3 -m venv pythonenvs/dialogflow
 	. pythonenvs/dialogflow/bin/activate
-	pip3 install -U pip
 ```
 
-5. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow consists of multiple steps and can take some time to complete. <br> At the end of this step, you would have setup a Google Project, installed and initialized gcloud CLI, and installed the Google Dialoglfow client library in the `dialogflow` virtual environment from the previous step. 
-
-6. In `virtual-assistant-dialogflow`'s `config.py`, update `PROJECT_ID` parameter with your project ID. To find your Project ID, perform the following steps:
-	1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner. 
-	2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
-
-7. Create Python virtual environment for Weatherbot web application, which uses Riva client, and install necessary libraries:  
- 	1. Create and activate Python virtual environment for Weatherbot web application:
-	```
-		python3 -m venv pythonenvs/client  
-		. pythonenvs/client/bin/activate
-	```  
-	2. Upgrade `pip`:
+5. Install the libraries necessary for the virtual assistant, including the Riva client library:
+	1. Upgrade `pip`:
 	```		
 		pip3 install -U pip
 	```  
-	3. Install Riva client libraries:  
+	2. Install Riva client libraries:  
 		1. Download the Riva Quick Start scripts, if not already done.  
 		```
 			ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"  
@@ -132,14 +120,22 @@ Before you try running the Riva client, ensure you meet the following requiremen
 			cd riva_quickstart_v<x.y.z>  
 			pip install riva_api-<x.y.z>-py3-none-any.whl  
 		```  
-	4. Upgrade `pip` and install Weatherbot dependencies. `requirements_client.txt` captures all other Python dependencies needed for Weatherbot web application:
+	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
 	```
-		pip3 install -r requirements_client.txt
-	```  
-	5. Deactivate Weatherbot web application's Python virtual environment:
+		pip3 install -r requirements.txt
 	```
-		deactivate
-	```  
+
+6. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow consists of multiple steps and can take some time to complete. <br> At the end of this step, you would have setup a Google Project, installed and initialized gcloud CLI, and installed the Google Dialogflow client library in the `dialogflow` virtual environment that we created in the previous step. 
+
+7. In `virtual-assistant-dialogflow`'s `config.py`, update `PROJECT_ID` parameter with your project ID. To find your Project ID, perform the following steps:
+	1. In the [Google Cloud Platform (GCP) Dashboard](https://console.cloud.google.com/home/dashboard), select your project from the top-left drop-down, found on the right side of the GCP banner. 
+	2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
+
+8. Deactivate Weatherbot web application's `dialogflow` Python virtual environment:
+```
+	deactivate
+```  
+	
 
 ## Running the Demo
 
