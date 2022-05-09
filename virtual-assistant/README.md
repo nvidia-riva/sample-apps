@@ -2,13 +2,44 @@
 
 ## Overview
 
-The Virtual Assistant sample demonstrates how to use Riva AI Services, specifically ASR, NLP, and TTS, to build a simple but complete conversational AI application. It demonstrates receiving input via speech from the user, interpreting the query via an intention recognition and slot filling approach, computing a response, and speaking this back to the user in a natural voice.
+The Virtual Assistant sample demonstrates how to use Riva AI Services, specifically ASR, NLP, and TTS, to build a simple but complete conversational AI application. It demonstrates receiving input through speech from the user, interpreting the query using an intention recognition and slot-filling approach, computing a response, and speaking this back to the user in a natural voice.
 
 You can find more information about the Riva Weather Chatbot and how to run it [here](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/samples/weather.html).
 
-## Running the Virtual Assistant
+<img src="./img/va-framework.png" alt="virtual-assistant architecture" width="800"/>
 
-Setting up Riva services is a prerequisite as the various components of the application depends on the availability of those servies. The weather bot assumes the availablity of the following models at the Riva endpoint – ASR, TTS, NLP (weather domain intent & slot model). After you have the Riva services up and running, proceed with running this application.
+This sample implements a dialog system with a state machine-based dialog state management approach, and using the intent/slot paradigm
+for interpreting user queries. The provided model demonstrates conversational queries of weather, temperature, and rainfall by
+geography and time, using a free web service as the fulfillment engine to return real weather data. While narrow in scope, it
+includes all of the components that make up more sophisticated and complete dialog systems such as those deployed on phones or in-home
+virtual assistants.
+
+The dialog manager is an environment that executes a state machine, and is integrated with Riva NLP, ASR, and TTS modules. This sample could be modified to implement more models and more complex dialog state management. It is also intended to demonstrate
+how Riva can be integrated into the existing virtual assistant and dialog systems to provide state-of-the-art conversational
+intelligence optimized for NVIDIA’s accelerated computing platform.
+
+It is possible, through the design of different dialog state diagrams to create different types of assistants. As a sample, we provide an
+implementation of a **weather** bot.
+
+<img src="./img/weather-bot.png" alt="Weather bot screengrab" width="800"/>
+
+## Video Demo
+
+[Here is a video](https://youtu.be/SUnepNejPDA) that shows the weather bot in action and then discusses the high-level
+description of the architecture followed by a very brief code walkthrough.
+
+## Requirements and Setup
+
+
+###  Pre-requisites
+
+1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
+
+2. Setting up Riva services is a prerequisite as the various components of the application depends on the availability of those servies. The weather bot assumes the availablity of the following models at the Riva endpoint – ASR, TTS, NLP (weather domain intent & slot model). After you have the Riva services up and running, only then proceed with running this application.
+
+3. Python3
+
+### Setup
 
 1. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/)
 ```bash
@@ -16,14 +47,29 @@ virtualenv -p python3 apps-env
 source apps-env/bin/activate
 ```
 
-2. Install required dependencies using [pip](https://pip.pypa.io/en/stable/)
-```bash
-pip3 install -r requirements.txt
-```
+2. Install the libraries necessary for the virtual assistant, including the Riva client library:
+    1. Upgrade [`pip`](https://pip.pypa.io/en/stable/):
+	```
+		pip3 install -U pip
+	```
+	2. Install Riva client libraries:
+		1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)
+		```
+			ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
+		```
+		2. Install the Riva client library.
+		```
+			cd riva_quickstart_v<x.y.z>
+			pip install riva_api-<x.y.z>-py3-none-any.whl
+		```
+	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
+	```
+		pip3 install -r requirements.txt
+	```
 
 3. Edit the configuration file [config.py](./config.py), and set:
-    * The Riva speech server URL. This is the endpoint where the Riva services can be accessed. 
-    * The [weatherstack API access key](https://weatherstack.com/documentation). The VA uses weatherstack for weather fulfillment, that is when the weather intents are recognized, real-time weather information is fetched from weatherstack. Sign up to the free tier of [weatherstack](https://weatherstack.com/), and get your API access key. 
+    * The Riva speech server URL. This is the endpoint where the Riva services can be accessed.
+    * The [weatherstack API access key](https://weatherstack.com/documentation). The VA uses weatherstack for weather fulfillment, that is when the weather intents are recognized, real-time weather information is fetched from weatherstack. Sign up to the free tier of [weatherstack](https://weatherstack.com/), and get your API access key.
 
 The code snippet will look like the example below.
 ```python3
@@ -40,23 +86,37 @@ riva_config = {
 python3 main.py
 ```
 
+5. Open the browser to **https://IP:8009/rivaWeather**, where the IP is for the machine where the application is running. For instance, go to <https://127.0.0.1:8009/rivaWeather/> for local machine.
+
 ## Sample Use Cases
 It is possible to ask the bot the following types of questions:
 
 * What is the weather in Berlin?
+
 * What is the weather?
     * For which location?
+
 * What’s the weather like in San Francisco tomorrow?
     * What about in Los Angeles, California?
+
 * What is the temperature in Milan on Friday?
+
 * Is it currently cold in San Francisco?
+
 * Is it going to rain in Mountain View tomorrow?
+
 * How much rain in Seattle?
+
 * Will it be sunny next week in Santa Clara?
+
 * Is cloudy today?
+
 * Is it going to snow tomorrow in Detroit?
+
 * How much snow is there in Tahoe currently?
+
 * How humid is it right now?
+
 * What is the humidity in Tahoe?
 
 ## Limitations
@@ -68,4 +128,4 @@ It is possible to ask the bot the following types of questions:
 * Some erratic issues have been observed with the chatbot samples on the Firefox browser. The most common issue is the TTS output being taken in as input by ASR for certain microphone gain values.
 
 ## License
-[End User License Agreement](https://developer.download.nvidia.com/licenses/Riva_Pre-Release_Evaluation_License_23Jan2020.pdf) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications, you accept the terms and conditions of these licenses.
+The [NVIDIA Riva License Agreement](https://developer.nvidia.com/riva/ga/license) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications here, you accept the terms and conditions of these licenses.   <br>
