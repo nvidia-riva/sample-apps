@@ -252,7 +252,7 @@ and the wind speed is 9 miles per hour.
 
 ## License
 
-[End User License Agreement](https://developer.download.nvidia.com/licenses/Riva_Pre-Release_Evaluation_License_23Jan2020.pdf) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications, you accept the terms and conditions of these licenses.  <br>
+The [NVIDIA Riva License Agreement](https://developer.nvidia.com/riva/ga/license) is included with the product. Licenses are also available along with the model application zip file. By pulling and using the Riva SDK container, downloading models, or using the sample applications here, you accept the terms and conditions of these licenses.   <br>
 Here is the license information for the libraries we are using in this sample:
 1. [google-cloud-dialogflow](https://github.com/googleapis/python-dialogflow) - The License for this library can be found [here](https://github.com/googleapis/python-dialogflow/blob/master/LICENSE).
 2. [actions-on-google](https://github.com/actions-on-google/actions-on-google-nodejs) -  The License for this library can be found [here](https://github.com/actions-on-google/actions-on-google-nodejs/blob/HEAD/LICENSE).
