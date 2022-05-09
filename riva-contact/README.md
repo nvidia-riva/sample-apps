@@ -42,11 +42,11 @@ You can use the default Riva models offered in the Quick Start configuration, or
 
 1. Clone Riva Sample Apps repository - [https://github.com/nvidia-riva/samples](https://github.com/nvidia-riva/samples)
 ```bash
-	git clone https://github.com/nvidia-riva/sample-apps.git
+git clone https://github.com/nvidia-riva/sample-apps.git
 ```
 2. Enter Riva and Rasa Virtual Assistant directory:
 ```bash
-	cd sample-apps/riva-contact
+cd sample-apps/riva-contact
 ```
 
 3. Install the package
