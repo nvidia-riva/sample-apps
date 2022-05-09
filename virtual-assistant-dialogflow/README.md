@@ -141,13 +141,12 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-2. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample apps github repository that you cloned in the Requirements section, step 1:
+2. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample-apps github repository that you cloned in the [Setup section](README.md#setup)'s, step 1.
 ```
 	cd sample-apps/virtual-assistant-dialogflow
 ```  
 
-3. Modify the API endpoint setting in the code base for inter-service communication:  
-Update the `config.py` script for inter-service communication.
+3. Modify the API endpoint setting in the code base for inter-service communication - Update the `config.py` script for inter-service communication.
 ```
 	riva_config = {
 	    ...
@@ -175,8 +174,8 @@ For example:
 		4. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new Weatherstack API key can be obtained from [here](https://weatherstack.com/).
 
 5. Start Riva and Dialogflow virtual assistant web application.
-	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the Requirements section, step 7.
-	2. Activate the chatbot client Python environment.
+	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the [Setup section](README.md#setup), step 7.
+	2. Activate the `dialogflow` Python environment.
 	```
 		. /pythonenvs/dialogflow/bin/activate
 	```
