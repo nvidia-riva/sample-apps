@@ -25,8 +25,9 @@ use the transcripts and tagged entities for downstream analytics and visualizati
 
 <img src="./_images/contact-architecture.png" alt="Contact Center" width="800"/>
 
+## Requirements and Setup
 
-## Requirements
+### Requirements
 
 1. Riva Contact is a `Node.js` application, intended to run in a Linux environment.  You will need [`npm`](https://docs.npmjs.com/cli/v8/commands/npm-install) to install the application.
 
@@ -35,9 +36,9 @@ use the transcripts and tagged entities for downstream analytics and visualizati
 * Streaming ASR
 * Named Entity Recognition (NER)
 
-You can use the default Riva models offered in the Quick Start configuration, or you can deploy your own custom models trained using [NVIDIA TAO Toolkit](https://developer.nvidia.com/tao-toolkit) and import into Riva. Riva Contact comes pre-configured to use the models from the Riva [Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
+You can use the default Riva models offered in the [Quick Start](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html) configuration, or you can deploy your own custom models trained using [NVIDIA TAO Toolkit](https://developer.nvidia.com/tao-toolkit) and import into Riva. Riva Contact comes pre-configured to use the models from the Riva [Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
-## Installing the app
+### Installing the app
 
 
 1. Clone Riva Sample Apps repository - [https://github.com/nvidia-riva/samples](https://github.com/nvidia-riva/samples)

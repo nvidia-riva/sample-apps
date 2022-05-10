@@ -39,33 +39,45 @@ description of the architecture followed by a very brief code walkthrough.
 
 ### Setup
 
-1. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/)
+1. Clone Riva Sample Apps repository - [https://github.com/nvidia-riva/samples](https://github.com/nvidia-riva/samples)
+```bash
+git clone https://github.com/nvidia-riva/sample-apps.git
+```
+2. Enter Riva Virtual Assistant directory:
+```bash
+cd sample-apps/virtual-assistant
+```
+
+3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/)
 ```bash
 virtualenv -p python3 apps-env
 source apps-env/bin/activate
 ```
 
-2. Install the libraries necessary for the virtual assistant, including the Riva client library:
+4. Install the libraries necessary for the virtual assistant, including the Riva client library:
     1. Upgrade [`pip`](https://pip.pypa.io/en/stable/):
 	```
-		pip3 install -U pip
+	pip3 install -U pip
 	```
 	2. Install Riva client libraries:
 		1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)
 		```
-			ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
+		ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
 		```
 		2. Install the Riva client library.
 		```
-			cd riva_quickstart_v<x.y.z>
-			pip install riva_api-<x.y.z>-py3-none-any.whl
+		cd riva_quickstart_v<x.y.z>
+		pip install riva_api-<x.y.z>-py3-none-any.whl
 		```
 	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
 	```
-		pip3 install -r requirements.txt
+	pip3 install -r requirements.txt
 	```
 
-3. Edit the configuration file [config.py](./config.py), and set:
+### Running the demo
+1.  Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
+
+2. Edit the configuration file [config.py](./config.py), and set:
     * The Riva speech server URL. This is the endpoint where the Riva services can be accessed.
     * The [weatherstack API access key](https://weatherstack.com/documentation). The VA uses weatherstack for weather fulfillment, that is when the weather intents are recognized, real-time weather information is fetched from weatherstack. Sign up to the free tier of [weatherstack](https://weatherstack.com/), and get your API access key.
 
@@ -79,12 +91,12 @@ riva_config = {
 }
 ```
 
-4. Run the virtual assistant application
+3. Run the virtual assistant application
 ```bash
 python3 main.py
 ```
 
-5. Open the browser to **https://IP:8009/rivaWeather**, where the IP is for the machine where the application is running. For instance, go to <https://127.0.0.1:8009/rivaWeather/> for local machine.
+4. Open the browser to **https://IP:8009/rivaWeather**, where the IP is for the machine where the application is running. For instance, go to <https://127.0.0.1:8009/rivaWeather/> for local machine.
 
 ## Sample Use Cases
 It is possible to ask the bot the following types of questions:
