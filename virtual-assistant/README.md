@@ -69,7 +69,7 @@ source apps-env/bin/activate
 		cd riva_quickstart_v<x.y.z>
 		pip install riva_api-<x.y.z>-py3-none-any.whl
 		```
-	3. Install weatherbot web application dependencies. In the `virtual-assistant` directory, `requirements.txt` captures all Python dependencies needed for weatherbot web application. For Python 3.6, please use `requirements-36.txt` instead.
+	3. Install weatherbot web application dependencies. In the `virtual-assistant` directory, `requirements.txt` captures all Python dependencies needed for weatherbot web application. For Python 3.6, please use `requirements-python36.txt` instead.
 	```
 	pip3 install -r requirements.txt
 	```
