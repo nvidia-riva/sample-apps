@@ -35,11 +35,16 @@ description of the architecture followed by a very brief code walkthrough.
 
 2. Setting up Riva services is a prerequisite as the various components of the application depends on the availability of those servies. The weather bot assumes the availablity of the following models at the Riva endpoint – ASR, TTS, NLP (weather domain intent & slot model). After you have the Riva services up and running, only then proceed with running this application.
 
-3. Python3
+3. Python 3.6-3.8
+
+4. [`virtualenv`](https://virtualenv.pypa.io/en/latest/) tool to create a Python environment.
+```bash
+pip install virtualenv
+```
 
 ### Setup
 
-1. Clone Riva Sample Apps repository - [https://github.com/nvidia-riva/samples](https://github.com/nvidia-riva/samples)
+1. Clone [Riva Sample Apps repository](https://github.com/nvidia-riva/sample-apps)
 ```bash
 git clone https://github.com/nvidia-riva/sample-apps.git
 ```
@@ -48,7 +53,7 @@ git clone https://github.com/nvidia-riva/sample-apps.git
 cd sample-apps/virtual-assistant
 ```
 
-3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/)
+3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/).
 ```bash
 virtualenv -p python3 apps-env
 source apps-env/bin/activate
@@ -56,7 +61,7 @@ source apps-env/bin/activate
 
 4. Install the libraries necessary for the virtual assistant, including the Riva client library:
     1. Upgrade [`pip`](https://pip.pypa.io/en/stable/):
-	```
+	```bash
 	pip3 install -U pip
 	```
 	2. Install Riva client libraries:
@@ -69,9 +74,9 @@ source apps-env/bin/activate
 		cd riva_quickstart_v<x.y.z>
 		pip install riva_api-<x.y.z>-py3-none-any.whl
 		```
-	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
-	```
-	pip3 install -r requirements.txt
+	3. Install weatherbot web application dependencies. In the `virtual-assistant` directory, `requirements.txt` captures all Python dependencies needed for weatherbot web application. For Python 3.6, please use `requirements-python36.txt` instead.
+	```bash
+	pip3 install -r requirements.txt # For Python 3.7 and 3.8
 	```
 
 ### Running the demo
@@ -107,13 +112,13 @@ It is possible to ask the bot the following types of questions:
     * For which location?
 
 * What’s the weather like in San Francisco tomorrow?
-    * What about in Los Angeles, California?
+    * What about in California City?
 
-* What is the temperature in Milan on Friday?
+* What is the temperature in Paris on Friday?
 
 * Is it currently cold in San Francisco?
 
-* Is it going to rain in Mountain View tomorrow?
+* Is it going to rain in Detroit tomorrow?
 
 * How much rain in Seattle?
 
@@ -121,13 +126,13 @@ It is possible to ask the bot the following types of questions:
 
 * Is cloudy today?
 
-* Is it going to snow tomorrow in Detroit?
+* Is it going to snow tomorrow in Milwaukee?
 
-* How much snow is there in Tahoe currently?
+* How much snow is there in Toronto currently?
 
 * How humid is it right now?
 
-* What is the humidity in Tahoe?
+* What is the humidity in Miami?
 
 ## Limitations
 * The provided sample is not complete chatbots, but is intended as simple examples of how to build basic task-oriented chatbots with Riva. Consequently, the intent classifier and slot filling model have been trained with small amounts of data and are not expected to be highly accurate.
