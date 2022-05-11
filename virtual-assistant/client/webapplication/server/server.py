@@ -9,7 +9,8 @@ from __future__ import division
 
 import uuid
 import time
-from flask import Flask, jsonify, send_from_directory, Response, request, logging
+import logging
+from flask import Flask, jsonify, send_from_directory, Response, request
 from flask_cors import CORS
 from flask import stream_with_context
 from flask_socketio import SocketIO, emit
@@ -20,7 +21,7 @@ from engineio.payload import Payload
 
 from riva.chatbot.chatbots_multiconversations_management import create_chatbot, get_new_user_conversation_index, get_chatbot
 
-''' Flask Initialization 
+''' Flask Initialization
 '''
 app = Flask(__name__)
 cors = CORS(app)
@@ -88,7 +89,7 @@ def get_input():
 
             if client_config['DEBUG']:
                 print(f"[{user_conversation_index}] Response from RivaDM: {response}")
-            
+
             for resp in response['response']:
                 speak = resp['payload']['text']
                 if len(speak):
@@ -133,7 +134,7 @@ def pauseASR(data):
         if verbose:
             print(f"[{data['user_conversation_index']}] Pausing ASR requests.")
         currentChatbot.pause_asr()
-        
+
 
 @sio.on('unpause_asr', namespace='/')
 def unpauseASR(data):

@@ -107,13 +107,13 @@ It is possible to ask the bot the following types of questions:
     * For which location?
 
 * What’s the weather like in San Francisco tomorrow?
-    * What about in Los Angeles, California?
+    * What about in California City?
 
-* What is the temperature in Milan on Friday?
+* What is the temperature in Paris on Friday?
 
 * Is it currently cold in San Francisco?
 
-* Is it going to rain in Mountain View tomorrow?
+* Is it going to rain in Detroit tomorrow?
 
 * How much rain in Seattle?
 
@@ -121,13 +121,13 @@ It is possible to ask the bot the following types of questions:
 
 * Is cloudy today?
 
-* Is it going to snow tomorrow in Detroit?
+* Is it going to snow tomorrow in Milwaukee?
 
-* How much snow is there in Tahoe currently?
+* How much snow is there in Toronto currently?
 
 * How humid is it right now?
 
-* What is the humidity in Tahoe?
+* What is the humidity in Miami?
 
 ## Limitations
 * The provided sample is not complete chatbots, but is intended as simple examples of how to build basic task-oriented chatbots with Riva. Consequently, the intent classifier and slot filling model have been trained with small amounts of data and are not expected to be highly accurate.
