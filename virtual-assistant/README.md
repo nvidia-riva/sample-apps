@@ -35,7 +35,7 @@ description of the architecture followed by a very brief code walkthrough.
 
 2. Setting up Riva services is a prerequisite as the various components of the application depends on the availability of those servies. The weather bot assumes the availablity of the following models at the Riva endpoint – ASR, TTS, NLP (weather domain intent & slot model). After you have the Riva services up and running, only then proceed with running this application.
 
-3. Python 3.8
+3. Python 3.6-3.8
 
 ### Setup
 
@@ -48,7 +48,7 @@ git clone https://github.com/nvidia-riva/sample-apps.git
 cd sample-apps/virtual-assistant
 ```
 
-3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/)
+3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/). The command below uses Python 3.8:
 ```bash
 virtualenv -p python3.8 apps-env
 source apps-env/bin/activate
@@ -69,7 +69,7 @@ source apps-env/bin/activate
 		cd riva_quickstart_v<x.y.z>
 		pip install riva_api-<x.y.z>-py3-none-any.whl
 		```
-	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
+	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application. For Python 3.6, please use `requirements-36.txt` instead.
 	```
 	pip3 install -r requirements.txt
 	```
