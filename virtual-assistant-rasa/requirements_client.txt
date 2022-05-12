@@ -1,10 +1,9 @@
-Flask==0.11.1
+Flask==2.1.2
 Flask-Cors==3.0.10
 Flask-SocketIO==4.2.1
-werkzeug<1.0
+werkzeug==2.0.3
 inflect==3.0.2
 numpy==1.17.4
 python-engineio==3.11.1
 python-socketio==4.4.0
 requests==2.26.0
-six==1.11.0

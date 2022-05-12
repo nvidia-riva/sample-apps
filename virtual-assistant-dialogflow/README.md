@@ -80,11 +80,11 @@ Riva and Dialogflow Chatbot).
 ### Requirements: 
 Before you try running the Riva client, ensure you meet the following requirements:
 1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
-2. [Python 3](https://www.python.org/download/releases/3.0/)  
+2. Python 3.6-3.8  
 
 ### Setup:  
 
-1. Clone Riva Sample Apps repository:
+1. Clone [Riva Sample Apps repository](https://github.com/nvidia-riva/sample-apps):
 ```
 	git clone https://github.com/nvidia-riva/sample-apps.git
 ```
@@ -120,9 +120,9 @@ Before you try running the Riva client, ensure you meet the following requiremen
 			cd riva_quickstart_v<x.y.z>  
 			pip install riva_api-<x.y.z>-py3-none-any.whl  
 		```  
-	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
+	3. Install weatherbot web application dependencies. For Python 3.7 and 3.8, `requirements.txt` captures all Python dependencies needed for weatherbot web application. For Python 3.6, use `requirements-python36.txt` instead:
 	```
-		pip3 install -r requirements.txt
+		pip3 install -r requirements.txt # For Python 3.7 and 3.8
 	```
 
 6. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow consists of multiple steps and can take some time to complete. <br> At the end of this step, you would have setup a Google Project, installed and initialized gcloud CLI, and installed the Google Dialogflow client library in the `dialogflow` virtual environment that we created in the previous step. 
