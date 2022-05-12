@@ -159,7 +159,7 @@ Before you try running the Riva client, ensure you meet the following requiremen
 		```  
 	4. Install weatherbot web application dependencies. For Python 3.7 and 3.8, `requirements_client.txt` captures all other Python dependencies needed for weatherbot web application. For Python 3.6, use `requirements_client-python36.txt` instead:
 	```
-		pip3 install -r requirements_client.txt
+		pip3 install -r requirements_client.txt # For Python 3.7 and 3.8
 	```  
 	5. Deactivate Weatherbot web application's Python virtual environment:
 	```
