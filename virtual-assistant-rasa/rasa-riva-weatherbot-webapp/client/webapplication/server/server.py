@@ -9,7 +9,8 @@ from __future__ import division
 
 import uuid
 import time
-from flask import Flask, jsonify, send_from_directory, Response, request, logging
+import logging
+from flask import Flask, jsonify, send_from_directory, Response, request
 from flask_cors import CORS
 from flask import stream_with_context
 from flask_socketio import SocketIO, emit
