@@ -76,7 +76,7 @@ This section shows the high-level code structure of the Weatherbot Client (in `r
   > - This file contains the functionality to make an API call to Rasa, with the user input and sender ID, and returns a text
   >   response obtained by processing the Rasa response object.
 
-- `tts.py` and `tts\_stream.py`
+- `tts.py` and `tts_stream.py`
 
   > - These files contain the functionality to make the gRPC call to Riva TTS, using the Riva Python Client libraries, with a
   >   text snippet, and returns the corresponding audio speech.
@@ -106,7 +106,7 @@ This section shows the high-level code structure of the Weatherbot Client (in `r
 ### Requirements: 
 Before you try running the Riva client, ensure you meet the following requirements:
 1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
-2. Python 3.6-3.8 
+2. Python 3.6 and 3.8. Support for Python 3.7 will be added in a future release.  
 
 ### Setup:  
 
@@ -157,9 +157,9 @@ Before you try running the Riva client, ensure you meet the following requiremen
 			cd riva_quickstart_v<x.y.z>  
 			pip install riva_api-<x.y.z>-py3-none-any.whl  
 		```  
-	4. Install weatherbot web application dependencies. For Python 3.7 and 3.8, `requirements_client.txt` captures all other Python dependencies needed for weatherbot web application. For Python 3.6, use `requirements_client-python36.txt` instead:
+	4. Install weatherbot web application dependencies. For Python 3.8, `requirements_client.txt` captures all other Python dependencies needed for weatherbot web application. For Python 3.6, use `requirements_client-python36.txt` instead:
 	```
-		pip3 install -r requirements_client.txt # For Python 3.7 and 3.8
+		pip3 install -r requirements_client.txt # For Python 3.8
 	```  
 	5. Deactivate Weatherbot web application's Python virtual environment:
 	```
