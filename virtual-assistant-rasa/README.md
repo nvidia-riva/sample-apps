@@ -106,7 +106,7 @@ This section shows the high-level code structure of the Weatherbot Client (in `r
 ### Requirements: 
 Before you try running the Riva client, ensure you meet the following requirements:
 1. You have access and are logged into NVIDIA NGC. For step-by-step instructions, refer to the [NGC Getting Started Guide](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account).
-2. Python 3.6 and 3.8. Support for Python 3.7 will be added in a future release 
+2. Python 3.6 and 3.8. Support for Python 3.7 will be added in a future release.  
 
 ### Setup:  
 
