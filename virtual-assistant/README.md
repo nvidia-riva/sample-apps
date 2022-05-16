@@ -1,3 +1,5 @@
+<img src="http://developer.download.nvidia.com/notebooks/dlsw-notebooks/riva_sample_virtual-assistant-readme/nvidia_logo.png" style="width: 90px; float: right;">
+
 # Riva Virtual Assistant Example
 
 ## Overview
