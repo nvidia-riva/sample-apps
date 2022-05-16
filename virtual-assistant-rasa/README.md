@@ -1,3 +1,5 @@
+<img src="http://developer.download.nvidia.com/notebooks/dlsw-notebooks/riva_sample_virtual-assistant-rasa-readme/nvidia_logo.png" style="width: 90px; float: right;">
+
 # Virtual Assistant (with Rasa)
 
 This Virtual Assistant (with Rasa) sample application demonstrates the integration of Rasa and the Riva Speech Service in the form
