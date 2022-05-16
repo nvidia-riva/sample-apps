@@ -1,3 +1,5 @@
+<img src="http://developer.download.nvidia.com/notebooks/dlsw-notebooks/riva_sample_repo-readme/nvidia_logo.png" style="width: 90px; float: right;">
+
 # Riva Sample Applications
 
 Riva comes with a number of sample applications showcasing using Riva for some common tasks.
