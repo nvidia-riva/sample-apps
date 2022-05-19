@@ -1,3 +1,5 @@
+<img src="http://developer.download.nvidia.com/notebooks/dlsw-notebooks/riva_sample_virtual-assistant-dialogflow-readme/nvidia_logo.png" style="width: 90px; float: right;">
+
 # Virtual Assistant (with Google Dialogflow)
 
 This Virtual Assistant (with Google Dialogflow) sample application demonstrates the integration of Google Dialogflow and Riva Speech Services in the form of a weather chatbot web application.
