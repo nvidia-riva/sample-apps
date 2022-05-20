@@ -1,3 +1,5 @@
+<img src="http://developer.download.nvidia.com/notebooks/dlsw-notebooks/riva_sample_riva-contact-readme/nvidia_logo.png" style="width: 90px; float: right;">
+
 # Riva Contact
 
 This Riva Contact Center Video Conference sample application is a web-based demonstration for contact center applications,
