@@ -25,7 +25,7 @@ the web client, which exchanges transcripts with the other user for an ongoing, 
 This sample application offers a launching pad for your own development. For example, there are many possible applications which
 use the transcripts and tagged entities for downstream analytics and visualization.
 
-<img src="./_images/contact-architecture.png" alt="Contact Center" width="800"/>
+![Contact Center](_images/contact-architecture.png "Contact Center")
 
 ## Requirements and Setup
 
