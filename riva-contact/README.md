@@ -6,7 +6,7 @@ This Riva Contact Center Video Conference sample application is a web-based demo
 combining peer-to-peer video chat with streaming automatic speech recognition (ASR) and natural language processing (NLP). It is a
 lightweight `Node.js` application, backed by NVIDIA Riva Speech services.
 
-<img src="./_images/contact-screenshot.png" alt="Contact Center" width="800"/>
+![Contact Center](_images/contact-screenshot.png "Contact Center")
 
 Users can chat using a direct, peer-to-peer WebRTC-based video connection. In the background, each user's web client sends a separate
 audio stream to the Riva Contact server. The server makes a streaming gRPC call to hosted Riva AI Services, which return an
@@ -25,7 +25,7 @@ the web client, which exchanges transcripts with the other user for an ongoing, 
 This sample application offers a launching pad for your own development. For example, there are many possible applications which
 use the transcripts and tagged entities for downstream analytics and visualization.
 
-<img src="./_images/contact-architecture.png" alt="Contact Center" width="800"/>
+![Contact Center](_images/contact-architecture.png "Contact Center")
 
 ## Requirements and Setup
 

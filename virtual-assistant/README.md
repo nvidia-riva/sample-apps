@@ -6,7 +6,7 @@
 
 The Virtual Assistant sample demonstrates how to use Riva AI Services, specifically ASR, NLP, and TTS, to build a simple but complete conversational AI application. It demonstrates receiving input through speech from the user, interpreting the query using an intention recognition and slot-filling approach, computing a response, and speaking this back to the user in a natural voice.
 
-<img src="./img/va-framework.png" alt="virtual-assistant architecture" width="800"/>
+![virtual-assistant architecture](img/va-framework.png "virtual-assistant architecture")
 
 This sample implements a dialog system with a state machine-based dialog state management approach, and using the intent/slot paradigm
 for interpreting user queries. The provided model demonstrates conversational queries of weather, temperature, and rainfall by
@@ -21,7 +21,7 @@ intelligence optimized for NVIDIA’s accelerated computing platform.
 It is possible, through the design of different dialog state diagrams to create different types of assistants. As a sample, we provide an
 implementation of a **weather** bot.
 
-<img src="./img/weather-bot.png" alt="Weather bot screengrab" width="800"/>
+![Weather bot screengrab](img/weather-bot.png "Weather bot screengrab")
 
 ## Video Demo
 
