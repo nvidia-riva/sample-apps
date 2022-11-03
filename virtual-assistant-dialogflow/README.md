@@ -110,16 +110,10 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	```
 		pip3 install -U pip
 	```
-	2. Install Riva client libraries:
-		1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)
-		```
-			ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
-		```
-		2. Install the Riva client library.
-		```
-			cd riva_quickstart_v<x.y.z>
-			pip install riva_api-<x.y.z>-py3-none-any.whl
-		```
+	2. Install Riva client libraries:		
+	```
+		pip3 install nvidia-riva-client
+	```
 	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
 	```
 		pip3 install -r requirements.txt # For Python 3.8
@@ -139,14 +133,19 @@ Before you try running the Riva client, ensure you meet the following requiremen
 
 ## Running the Demo
 
-1. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
+1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)
+```
+	ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
+```
 
-2. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample-apps github repository that you cloned in the [Setup section](README.md#setup)'s, step 1.
+2. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
+
+3. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample-apps github repository that you cloned in the [Setup section](README.md#setup)'s, step 1.
 ```
 	cd sample-apps/virtual-assistant-dialogflow
 ```
 
-3. Modify the API endpoint setting in the code base for inter-service communication - Update the `config.py` script for inter-service communication.
+4. Modify the API endpoint setting in the code base for inter-service communication - Update the `config.py` script for inter-service communication.
 ```
 	riva_config = {
 	    ...
@@ -164,7 +163,7 @@ For example:
 	}
 ```
 
-4. Initialize and start the Dialogflow Weatherbot.
+5. Initialize and start the Dialogflow Weatherbot.
 	1. Follow the steps [here](https://cloud.google.com/dialogflow/es/docs/quick/build-agent#create-an-agent) to create an agent.
 	2. Click the **Setting** button next to the agent name in the Dialogflow console. Under the **Export and Import** tab, choose **Restore From ZIP** and upload the zipped folder from your host at `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/dialogflow-weatherbot.zip`.
 	3. Add fullfillment.
@@ -173,7 +172,7 @@ For example:
 		3. Copy and paste the contents of the `sample-apps/virtual-assistant-dialogflow/dialogflow-weatherbot/fulfillment/package.json` into `package.json` under the **Inline Editor**.
 		4. In `index.js`, at line 4, update the `weatherstack_APIkey` with your Weatherstack API key. A new Weatherstack API key can be obtained from [here](https://weatherstack.com/).
 
-5. Start Riva and Dialogflow virtual assistant web application.
+6. Start Riva and Dialogflow virtual assistant web application.
 	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the [Setup section](README.md#setup), step 7.
 	2. Activate the `dialogflow` Python environment.
 	```
