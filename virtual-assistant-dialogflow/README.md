@@ -85,38 +85,38 @@ Before you try running the Riva client, ensure you meet the following requiremen
 ### Setup:
 
 1. Clone [Riva Sample Apps repository](https://github.com/nvidia-riva/sample-apps):
-```
-	git clone https://github.com/nvidia-riva/sample-apps.git
+```bash
+git clone https://github.com/nvidia-riva/sample-apps.git
 ```
 
 2. Enter Riva and Dialogflow Virtual Assistant directory:
-```
-	cd sample-apps/virtual-assistant-dialogflow
+```bash
+cd sample-apps/virtual-assistant-dialogflow
 ```
 
 3. Create parent directory for the Python virtual environment we will be using for this sample:
-```
-	mkdir pythonenvs
+```bash
+mkdir pythonenvs
 ```
 
 4. Create and activate Python virtual environment for this sample. We will be using this virtual environment for all dependent libraries, including Riva client library, weatherbot web application libraries, and Google Dialogflow client library:
-```
-	python3 -m venv pythonenvs/dialogflow
-	. pythonenvs/dialogflow/bin/activate
+```bash
+python3 -m venv pythonenvs/dialogflow
+. pythonenvs/dialogflow/bin/activate
 ```
 
 5. Install the libraries necessary for the virtual assistant, including the Riva client library:
 	1. Upgrade `pip`:
-	```
-		pip3 install -U pip
+	```bash
+	pip3 install -U pip
 	```
 	2. Install Riva client libraries:		
-	```
-		pip3 install nvidia-riva-client
+	```bash
+	pip3 install nvidia-riva-client
 	```
 	3. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application:
-	```
-		pip3 install -r requirements.txt # For Python 3.8
+	```bash
+	pip3 install -r requirements.txt # For Python 3.8
 	```
 
 6. [Set up](https://cloud.google.com/dialogflow/es/docs/quick/setup) Google Dialogflow. The entire set up process for Dialogflow consists of multiple steps and can take some time to complete. <br> At the end of this step, you would have setup a Google Project, installed and initialized gcloud CLI, and installed the Google Dialogflow client library in the `dialogflow` virtual environment that we created in the previous step.
@@ -126,41 +126,41 @@ Before you try running the Riva client, ensure you meet the following requiremen
 	2. Under the **DASHBOARD** tab, the Project ID can be found in the *Project Info* section.
 
 8. Deactivate Weatherbot web application's `dialogflow` Python virtual environment:
-```
-	deactivate
+```bash
+deactivate
 ```
 
 
 ## Running the Demo
 
 1. Download the Riva Quick Start scripts, if not already done. `x.y.z` is the Riva Speech Skills version number - The latest Riva version number can be found in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#)'s [Local Deploymnent using Quick Start Scripts section](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html#local-deployment-using-quick-start-scripts)
-```
-	ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
+```bash
+ngc registry resource download-version "nvidia/riva/riva_quickstart:x.y.z"
 ```
 
 2. Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html).
 
 3. Navigate to the Riva and Dialogflow Virtual Assistant directory in the Riva sample-apps github repository that you cloned in the [Setup section](README.md#setup)'s, step 1.
-```
-	cd sample-apps/virtual-assistant-dialogflow
+```bash
+cd sample-apps/virtual-assistant-dialogflow
 ```
 
 4. Modify the API endpoint setting in the code base for inter-service communication - Update the `config.py` script for inter-service communication.
-```
-	riva_config = {
-	    ...
-	    "RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
-	    ...
-	}
+```python
+riva_config = {
+	...
+	"RIVA_SPEECH_API_URL": "[riva speech service host IP]:50051",
+	...
+}
 ```
 For example:
-```
-	# uncomment and populate the section below
-	riva_config = {
-		...
-		"RIVA_SPEECH_API_URL": "10.20.30.40:50051",
-		...
-	}
+```python
+# uncomment and populate the section below
+riva_config = {
+	...
+	"RIVA_SPEECH_API_URL": "10.20.30.40:50051",
+	...
+}
 ```
 
 5. Initialize and start the Dialogflow Weatherbot.
@@ -175,16 +175,16 @@ For example:
 6. Start Riva and Dialogflow virtual assistant web application.
 	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the [Setup section](README.md#setup), step 7.
 	2. Activate the `dialogflow` Python environment.
-	```
-		. /pythonenvs/dialogflow/bin/activate
+	```bash
+	. /pythonenvs/dialogflow/bin/activate
 	```
 	3. Navigate to the chatbot web application folder.
-	```
-		cd dialogflow-riva-weatherbot-webapp
+	```bash
+	cd dialogflow-riva-weatherbot-webapp
 	```
 	4. Start the chatbot web server.
-	```
-		python3 main.py
+	```bash
+	python3 main.py
 	```
 	5. Open the interface in a web browser `https://<riva chatbot server host IP>:6006/rivaWeather`, e.g. [https://0.0.0.0:6006/rivaWeather](https://0.0.0.0:6006/rivaWeather).
 
