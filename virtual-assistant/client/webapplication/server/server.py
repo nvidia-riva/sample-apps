@@ -9,8 +9,7 @@ from __future__ import division
 
 import uuid
 import time
-import logging
-from flask import Flask, jsonify, send_from_directory, Response, request
+from flask import Flask, jsonify, send_from_directory, Response, request, logging
 from flask_cors import CORS
 from flask import stream_with_context
 from flask_socketio import SocketIO, emit
@@ -19,14 +18,14 @@ from os import listdir
 from config import client_config
 from engineio.payload import Payload
 
-from riva.chatbot.chatbots_multiconversations_management import create_chatbot, get_new_user_conversation_index, get_chatbot
+from riva_local.chatbot.chatbots_multiconversations_management import create_chatbot, get_new_user_conversation_index, get_chatbot
 
-''' Flask Initialization
+''' Flask Initialization 
 '''
 app = Flask(__name__)
 cors = CORS(app)
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+log = logging.logging.getLogger('werkzeug')
+log.setLevel(logging.logging.ERROR)
 Payload.max_decode_packets = 500  # https://github.com/miguelgrinberg/python-engineio/issues/142
 sio = SocketIO(app, logger=False)
 verbose = client_config['VERBOSE']
@@ -89,7 +88,7 @@ def get_input():
 
             if client_config['DEBUG']:
                 print(f"[{user_conversation_index}] Response from RivaDM: {response}")
-
+            
             for resp in response['response']:
                 speak = resp['payload']['text']
                 if len(speak):
@@ -134,7 +133,7 @@ def pauseASR(data):
         if verbose:
             print(f"[{data['user_conversation_index']}] Pausing ASR requests.")
         currentChatbot.pause_asr()
-
+        
 
 @sio.on('unpause_asr', namespace='/')
 def unpauseASR(data):
