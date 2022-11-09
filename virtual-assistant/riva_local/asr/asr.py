@@ -166,8 +166,6 @@ class ASRPipe(object):
         if self.verbose:
             print("[Riva ASR] StreamingRecognize Start")
 
-        # <------------ EXERCISE: Fill in the line of code below ------------->
-        # responses = self.riva_asr.streaming_response_generator(xx) ?
         responses = self.riva_asr.streaming_response_generator(audio_chunks=self.request_generator, 
                                                                streaming_config=streaming_config)
 
