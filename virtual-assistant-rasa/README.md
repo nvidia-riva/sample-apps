@@ -114,7 +114,7 @@ git clone https://github.com/nvidia-riva/sample-apps.git
 ```bash
 cd sample-apps/virtual-assistant-rasa
 ```
-3. Create parent directory for all Python virtual environments we will be using for this sample:
+3. Create a parent directory for all Python virtual environments we will be using for this sample:
 ```bash
 mkdir pythonenvs
 ```
@@ -122,7 +122,7 @@ mkdir pythonenvs
 	1. Create and activate Python virtual environment for Rasa text-based chatbot:
 	```bash
 	python3 -m venv pythonenvs/rasa
-	. pythonenvs/rasa/bin/activate
+	source pythonenvs/rasa/bin/activate
 	```
 	2. Upgrade `pip` and install Rasa dependencies. `requirements_rasa.txt` captures all the Python dependencies needed for Rasa text-based chatbot:
 	```bash
@@ -137,7 +137,7 @@ mkdir pythonenvs
  	1. Create and activate Python virtual environment for Weatherbot web application:
 	```bash
 	python3 -m venv pythonenvs/client
-	. pythonenvs/client/bin/activate
+	source pythonenvs/client/bin/activate
 	```
 	2. Upgrade `pip`:
 	```bash
@@ -236,7 +236,7 @@ cd sample-apps/virtual-assistant-rasa
 	1. Open the `config.py` script. In the dictionary on the right side of the `riva_config` variable, update the `WEATHERSTACK_ACCESS_KEY` field with your Weatherstack API key. A new Weatherstack API key can be obtained [here](https://weatherstack.com/).
 	2. Activate the Python virtual environment for Rasa text-based chatbot.
 	```bash
-	. pythonenvs/rasa/bin/activate
+	source pythonenvs/rasa/bin/activate
 	```
 	3. Navigate to the `rasa-weatherbot` directory.
 	```bash
@@ -250,7 +250,7 @@ cd sample-apps/virtual-assistant-rasa
 5. Start the Rasa server in a different terminal.
 	1. Activate the Python virtual environment for Rasa text-based chatbot.
 	```bash
-	. pythonenvs/rasa/bin/activate
+	source pythonenvs/rasa/bin/activate
 	```
 	2. Navigate to the `rasa-weatherbot` directory.
 	```bash
@@ -278,7 +278,7 @@ cd sample-apps/virtual-assistant-rasa
 6. Start the Riva Chatbot server.
 	1. Activate the Python virtual environment for the weather web application.
 	```bash
-	. pythonenvs/client/bin/activate
+	source pythonenvs/client/bin/activate
 	```
 	2. Navigate to the `rasa-riva-weatherbot-webapp` directory.
 	```bash

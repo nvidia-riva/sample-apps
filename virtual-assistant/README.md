@@ -55,13 +55,18 @@ git clone https://github.com/nvidia-riva/sample-apps.git
 cd sample-apps/virtual-assistant
 ```
 
-3. Create and enable a Python [virtual environment](https://virtualenv.pypa.io/en/latest/).
+3. Create a parent directory for the Python virtual environment we will be using for this sample:
 ```bash
-virtualenv -p python3 apps-env
-source apps-env/bin/activate
+mkdir pythonenvs
 ```
 
-4. Install the libraries necessary for the virtual assistant, including the Riva client library:
+4. Create and enable a Python virtual environment:
+```bash
+python3 -m venv pythonenvs/virtual-assistant
+source pythonenvs/virtual-assistant/bin/activate
+```
+
+5. Install the libraries necessary for the virtual assistant, including the Riva client library:
     1. Upgrade [`pip`](https://pip.pypa.io/en/stable/):
 	```bash
 	pip3 install -U pip

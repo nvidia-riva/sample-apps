@@ -94,15 +94,15 @@ git clone https://github.com/nvidia-riva/sample-apps.git
 cd sample-apps/virtual-assistant-dialogflow
 ```
 
-3. Create parent directory for the Python virtual environment we will be using for this sample:
+3. Create a parent directory for the Python virtual environment we will be using for this sample:
 ```bash
 mkdir pythonenvs
 ```
 
-4. Create and activate Python virtual environment for this sample. We will be using this virtual environment for all dependent libraries, including Riva client library, weatherbot web application libraries, and Google Dialogflow client library:
+4. Create and activate the Python virtual environment for this sample. We will be using this virtual environment for all dependent libraries, including Riva client library, weatherbot web application libraries, and Google Dialogflow client library:
 ```bash
 python3 -m venv pythonenvs/dialogflow
-. pythonenvs/dialogflow/bin/activate
+source pythonenvs/dialogflow/bin/activate
 ```
 
 5. Install the libraries necessary for the virtual assistant, including the Riva client library:
@@ -176,7 +176,7 @@ riva_config = {
 	1. If not already done, update `config.py` with the Dialogflow weatherbot's Project ID as described in the [Setup section](README.md#setup), step 7.
 	2. Activate the `dialogflow` Python environment.
 	```bash
-	. /pythonenvs/dialogflow/bin/activate
+	source /pythonenvs/dialogflow/bin/activate
 	```
 	3. Navigate to the chatbot web application folder.
 	```bash
