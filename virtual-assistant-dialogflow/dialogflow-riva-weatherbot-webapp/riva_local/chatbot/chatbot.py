@@ -7,10 +7,10 @@
 
 import time
 
-from riva.asr.asr import ASRPipe
-from riva.dialogflow.dialogflow import DialogflowPipe
-from riva.tts.tts import TTSPipe
-# from riva.tts.tts_stream import TTSPipe
+from riva_local.asr.asr import ASRPipe
+from riva_local.dialogflow.dialogflow import DialogflowPipe
+# from riva_local.tts.tts import TTSPipe
+from riva_local.tts.tts_stream import TTSPipe
 
 class ChatBot(object):
     """ Class Implementing all the features of the chatbot"""
