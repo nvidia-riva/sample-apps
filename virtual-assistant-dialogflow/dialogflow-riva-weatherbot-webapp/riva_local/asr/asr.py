@@ -154,7 +154,8 @@ class ASRPipe(object):
         config.max_alternatives = 1    
         config.enable_automatic_punctuation = self.enable_automatic_punctuation
         config.verbatim_transcripts = True
-        config.audio_channel_count = 1 
+        config.audio_channel_count = 1
+        config.encoding = riva.client.AudioEncoding.LINEAR_PCM 
 
         streaming_config = riva.client.StreamingRecognitionConfig(config=config, interim_results=True)
 
