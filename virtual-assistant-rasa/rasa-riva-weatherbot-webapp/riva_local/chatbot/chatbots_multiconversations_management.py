@@ -5,7 +5,7 @@
 # README.md file.
 # ==============================================================================
 
-from riva.chatbot.chatbot import ChatBot
+from riva_local.chatbot.chatbot import ChatBot
 from config import riva_config
 
 # Default ASR parameters - Used in case config values not specified in the config.py file
