@@ -21,7 +21,7 @@ root_folder = (os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                  os.path.pardir)))
 sys.path.append(root_folder)
 
-from riva.nlp.nlp import get_intent_and_entities
+from riva_local.nlp.nlp import get_intent_and_entities
 
 
 class RivaNLPComponent(Component):
@@ -83,6 +83,7 @@ class RivaNLPComponent(Component):
         return intent
     
     def __convert_to_rasa_entities(self, response):
+        print(response)
         """Convert model output into the Rasa NLU compatible output format."""
         for entity in response["entities"]:
             entity["extractor"] = "RivaNLPExtractor"
