@@ -18,7 +18,7 @@ import requests
 import json
 
 auth = riva.client.Auth(uri=riva_config["RIVA_SPEECH_API_URL"])
-riva_nlp = riva.client.NLPService(auth)
+riva_nlp  = riva.client.NLPService(auth)
 
 # The default intent object for specifying the city
 SPECIFY_CITY_INTENT = { 'value': "specify_city", 'confidence': 1 }
@@ -31,8 +31,9 @@ NLU_FALLBACK_THRESHOLD = 0.3
 verbose = rivanlp_config["VERBOSE"] if "VERBOSE" in rivanlp_config else VERBOSE
 nlu_fallback_threshold = rivanlp_config["NLU_FALLBACK_THRESHOLD"] if "NLU_FALLBACK_THRESHOLD" in rivanlp_config else NLU_FALLBACK_THRESHOLD
 
-
+#  {}
 def get_intent_old(resp, result):
+    # result['intent'] = []
     if hasattr(resp, 'intent') and (hasattr(resp, 'domain') and resp.domain.class_name != "nomatch.none"):
         result['intent'] = { 'value': resp.intent.class_name, 'confidence': resp.intent.score }
         parentclassintent_index = result['intent']['value'].find(".")
@@ -51,6 +52,7 @@ def get_entities(resp, result):
     location_found_flag = False
     all_entities_class = {}
     all_entities = []
+    result['entities'] = []
     if hasattr(resp, 'slots'):
         for i in range(len(resp.slots)):
             slot_class = resp.slots[i].label[0].class_name.replace("\r", "")
@@ -110,8 +112,8 @@ def get_riva_output(text):
         print("[Riva NLU] Error during NLU request")
         return {'riva_error': 'riva_error'}
     entities = {}
-    get_intent(resp, entities)
-    get_slots(resp, entities)
+    get_intent_old(resp, entities)
+    get_entities(resp, entities)
     if 'location' not in entities:
         if verbose:
             print(f"[Riva NLU] Did not find any location in the string: {text}\n"

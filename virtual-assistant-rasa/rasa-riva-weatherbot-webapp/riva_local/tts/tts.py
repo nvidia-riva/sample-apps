@@ -27,7 +27,7 @@ class TTSPipe(object):
         self.sample_rate = tts_config["SAMPLE_RATE"] if "SAMPLE_RATE" in tts_config else SAMPLE_RATE
         self.language_code = tts_config["LANGUAGE_CODE"] if "LANGUAGE_CODE" in tts_config else LANGUAGE_CODE
         self.voice_name = tts_config["VOICE_NAME"] if "VOICE_NAME" in tts_config else VOICE_NAME
-        self.audio_encoding = ra.AudioEncoding.LINEAR_PCM
+        self.audio_encoding = riva.client.AudioEncoding.LINEAR_PCM
         self._buff = queue.Queue()
         self.closed = False
         self._flusher = bytes(np.zeros(dtype=np.int16, shape=(self.sample_rate, 1)))  # Silence audio

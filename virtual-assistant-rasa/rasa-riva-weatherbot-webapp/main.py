@@ -9,7 +9,7 @@ import os, sys
 
 root_folder = (os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 sys.path.append(root_folder)
-
+# print(root_folder)
 from config import client_config
 
 if __name__ == '__main__':

@@ -22,7 +22,7 @@ VOICE_NAME = "English-US-Female-1"
 class TTSPipe(object):
     """Opens a gRPC channel to Riva TTS to synthesize speech
     from text in streaming mode."""
-
+    print('TTS started')
     def __init__(self):
         self.verbose = tts_config["VERBOSE"] if "VERBOSE" in tts_config else VERBOSE
         self.sample_rate = tts_config["SAMPLE_RATE"] if "SAMPLE_RATE" in tts_config else SAMPLE_RATE
@@ -48,6 +48,7 @@ class TTSPipe(object):
 
     def fill_buffer(self, in_data):
         """To collect text responses from the state machine output, into a buffer."""
+        # print()
         if len(in_data):
             self._buff.put(in_data)
 
