@@ -51,7 +51,35 @@ python3 --version
         ```
 
 ### Running the demo
-1.  Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html). This will allow Speech AI capabilities which are required for the demo. **Note the IP & port** where the Riva server is running. By default it will run at IP:50051
+1.  Start the Riva Speech Server, if not already done. Follow the steps in the [Riva Quick Start Guide](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/quick-start-guide.html). This will allow Speech AI capabilities which are required for the demo. **Note the IP & port** where the Riva server is running. By default it will run at IP:50051.
+    1. In the `config.sh` script included in the 
+    [Riva Skills Quick Start](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/riva/resources/riva_quickstart) resource folder, set 
+    ```bash
+    service_enabled_asr=true
+    service_enabled_nlp=true
+    service_enabled_tts=true
+    service_enabled_nmt=false
+    ```
+    2. In `config.sh`, under 
+    ```bash
+    else
+      models_nlp=(
+      ...
+    ```
+    comment out or uncomment the names of the NLP models as desired. At a minimum, 
+    this sample app requires the BERT Base Intent Slot model. The BERT Base 
+    Punctuation and Capitalization model and BERT Base Named Entity Recognition 
+    model are also recommended. 
+    3. In a terminal, in the Riva Skills Quick Start resource folder's home 
+    directory, run 
+    ```bash
+    ./riva_init.sh
+    ```
+    to download and deploy the speech AI models. Then, run 
+    ```bash
+    ./riva_start.sh
+    ```
+    to start the Riva Server.
 
 2. Edit the configuration file [config.py](./config.py)
     1. In `riva_config` set:
