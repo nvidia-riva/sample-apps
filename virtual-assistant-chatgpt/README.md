@@ -36,16 +36,16 @@ python3 --version
 *Python 3.8.10*
 
 
-4. Install the libraries necessary for the virtual assistant, including the Riva client library:
-    1. Install the Riva client library.
-		```
-		pip install nvidia-riva-client
-		```
-	2. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application.
+4. Install the libraries necessary for the virtual assistant, including the Riva and OpenAI client libraries:
+    1. Install weatherbot web application dependencies. `requirements.txt` captures all Python dependencies needed for weatherbot web application.
         ```bash
         pip install -r requirements.txt # Tested with Python 3.8
         ```
-    3. Install the OpenAI Client library
+    2. Install the Riva client library.
+		```
+		pip install nvidia-riva-client
+		```
+	3. Install the OpenAI Client library
         ```bash
         pip install openai
         ```
