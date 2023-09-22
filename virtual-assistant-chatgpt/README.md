@@ -70,6 +70,7 @@ python3 --version
     this sample app requires the BERT Base Intent Slot model. The BERT Base 
     Punctuation and Capitalization model and BERT Base Named Entity Recognition 
     model are also recommended. 
+    
     3. In a terminal, in the Riva Skills Quick Start resource folder's home 
     directory, run 
     ```bash
