@@ -6,12 +6,17 @@
 # ==============================================================================
 
 # This is used for finding the state to transition to based on intent
+# We've added the misspelled intent weather.temprature because that intent is 
+# misspelled in <riva_model_loc>/models/riva_intent_weather/1/intent_labels.csv
+# To clarify further, the problem is in the outputs of the intent slot model, 
+# not in the sample apps or the Riva Client Python module
 intent_transitions = {
     'rivaWeather': {
         'weather.qa_answer': 'checkWeatherLocation',
         'weather.weather': 'checkWeatherLocation',
         'context.weather': 'checkWeatherLocation',
         'weather.temperature': 'checkWeatherLocation',
+        'weather.temprature': 'checkWeatherLocation', # Intentional misspelling for debugging
         'weather.sunny': 'checkWeatherLocation',
         'weather.cloudy': 'checkWeatherLocation',
         'weather.snow': 'checkWeatherLocation',

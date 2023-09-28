@@ -34,10 +34,15 @@ typical api_response format
 
 # Mapping of intents detected by the Intent & Slot Model to simple intent strings
 # that the Large Language Model can understand
+# We've added the misspelled intent weather.temprature because that intent is 
+# misspelled in <riva_model_loc>/models/riva_intent_weather/1/intent_labels.csv
+# To clarify further, the problem is in the outputs of the intent slot model, 
+# not in the sample apps or the Riva Client Python module
 llm_weather_intents = {
     "weather.weather":"Weather",
     "context.weather":"Weather",
-    "weather.temperature":"Temperature",
+    "weather.temperature":"Temperature", 
+    "weather.temprature":"Temperature", # Intentional misspelling for debugging
     "weather.temperature_yes_no":"Temperature",
     "weather.rainfall_yes_no":"Rain",
     "weather.rainfall":"Rain",
