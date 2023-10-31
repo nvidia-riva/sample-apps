@@ -311,6 +311,11 @@ input[type="color"]:focus,
   color: white;
 }
 
+#unmuteButton:disabled {
+  background-color: #bc0404;
+  color: white;
+}
+
 #submit {
   background-color: #78bc04;
 }
