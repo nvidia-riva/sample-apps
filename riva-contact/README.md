@@ -31,7 +31,7 @@ use the transcripts and tagged entities for downstream analytics and visualizati
 
 ### Requirements
 
-1. Riva Contact is a `Node.js` application, intended to run in a Linux environment.  You will need [`npm`](https://docs.npmjs.com/cli/v8/commands/npm-install) to install the application.
+1. Riva Contact is a `Node.js` application, intended to run in a Linux environment and `Node.js v18`.  You will need [`npm`](https://docs.npmjs.com/cli/v8/commands/npm-install) to install the application.
 
 2. The application requires Riva Speech Services to run with two primary models:
 
